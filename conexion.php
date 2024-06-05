@@ -15,7 +15,7 @@
           
 			$infoDB = array(
 				"host" => "localhost:3307",
-				"database" => "ejemplo",
+				"database" => "bdnaisslyu",
 				"user" => "root",
 				"pass" => ""
 
