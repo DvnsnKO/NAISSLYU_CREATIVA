@@ -32,6 +32,7 @@ class RutasModelo
             $ruta == "activos"
             || $ruta == "crear_productos"           
             || $ruta == "inactivos"
+            || $ruta == "actualizar_productos"
 
         ) {
             $pagina = "./public/vistas/admin/productos/" . $ruta . ".vistas.php";

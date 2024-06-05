@@ -65,7 +65,7 @@
                                         '</small><br><small>' .  $Persona["Celular"] . ' </small> </td>
                                         <td class="vM">' . $Persona["Fecha_inscrito"] . '</td>
                                         <td>
-                                        <a href="#" class="btn btn-warning btn-sm" title="cambiar contraseña"><i class="fas fa-unlock"></i> </a>
+                                        <a href="#" class="btn btn-warning btn-sm" title="cambiar contraseña"><i class="fas fa-yin-yang"></i> </a>
                                         <a href="#" class="btn btn-success btn-sm" title="editar"><i class="far fa-edit nav-icon"></i> <span></i> </a>
                                         <a href="#" class="btn btn-danger btn-sm"  title="eliminar"><i class="fa fa-trash nav-icon"></i> </a>
                                       </td>

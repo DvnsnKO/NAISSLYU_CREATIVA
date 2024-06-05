@@ -66,8 +66,8 @@ require_once './app/controlador/productos/productos.controlador.php';
                             </div>
                             <div class="form-group green-box">
                                 <label for="productDescription">Descripcion:</label>
-                                <textarea class="form-control" id="productDescription" name="Descripcion" required>
-                                </textarea>
+                                <input class="form-control" id="productDescription" name="Descripcion" required>
+                               
                             </div>
 
 

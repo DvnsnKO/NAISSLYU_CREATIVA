@@ -68,8 +68,8 @@
                                 </div>
 
                                 <div class="input-group mb-3">
-                                    <label class="col-4" for="cliente_Usuario">Contraseña</label>
-                                    <input type="password" class="form-control" id="cliente_Usuario" name="Contrasenia"
+                                    <label class="col-4" for="Contrasenia">Contraseña</label>
+                                    <input type="password" class="form-control" id="Contrasenia" name="Contrasenia"
                                         required>
                                     <div class="input-group-text">
                                         <span class="fas fa-lock"></span>
@@ -90,8 +90,8 @@
 
                             <form action="#" method="post">
                                 <div class="input-group mb-3">
-                                    <label class="col-12" for="cliente_Nombres">Direccion:</label>
-                                    <input type="text" class="form-control" id="cliente_Nombres" name="Nombres"
+                                    <label class="col-12" for="Nombres">Direccion:</label>
+                                    <input type="text" class="form-control" id="Nombres" name="Nombres"
                                         required>
                                     <div class="input-group-append">
                                         <div class="input-group-text">
@@ -114,8 +114,8 @@
                                         <div id="municipio">
                                             <select name="municipio" id="municipios"></select>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div> 
+                                </div>   
 
                                 <script>
                                     let departamentosYmunicipios = [];

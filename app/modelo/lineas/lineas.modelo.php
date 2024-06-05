@@ -7,8 +7,8 @@ class LineasModel
 {
 
   public static function index()
-  {try 
-    {
+  {
+    try {
       /** Realizar la consulta a la base de datos */
       $datos = Conexion::connect()->prepare("SELECT * FROM lineas");
 
@@ -19,7 +19,7 @@ class LineasModel
       return $datos->fetchAll();
 
       /**Cerrar conexion a la bd */
-    
+
 
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -29,7 +29,7 @@ class LineasModel
   //Método para guardar registro en la tabla de la base de datos
   public static function create($data)
   {
-   
+
 
 
 
@@ -73,10 +73,10 @@ class LineasModel
 
 
         /**Asignar parametros*/
-        
-      
+
+
         $create->bindParam(":Nombre_linea", $data, PDO::PARAM_STR);
-       
+
 
         /**Ejecutar la consulta */
         if ($create->execute()) {
@@ -86,53 +86,52 @@ class LineasModel
         }
 
         /**Cerrar conexion a la bd */
-        
+
       }
     }
   }
   static public function show($id)
-          {
-              /** Realizar la consulta a la base de datos */
-              $data = Conexion::connect()->prepare("SELECT *  FROM lineas  WHERE idlineas = :id");
+  {
+    /** Realizar la consulta a la base de datos */
+    $data = Conexion::connect()->prepare("SELECT *  FROM lineas  WHERE idlineas = :id");
 
-              /** Inicializar los parametros de la consulta */
-              $data -> bindParam(":id", $id, PDO::PARAM_INT);
+    /** Inicializar los parametros de la consulta */
+    $data->bindParam(":id", $id, PDO::PARAM_INT);
 
-              /**Ejecutar la consulta */
-              $data -> execute();
-              
-              /** Devuelve el registro consultado */
-              return $data->fetch();
+    /**Ejecutar la consulta */
+    $data->execute();
 
-              /**Cerrar conexion a la bd */
-              
-          }
+    /** Devuelve el registro consultado */
+    return $data->fetch();
 
-          static public function update($data){
+    /**Cerrar conexion a la bd */
 
-            
+  }
 
-            
-           
-            
-            $update = Conexion::Connect()->prepare("UPDATE lineas SET Nombre_linea = :Nombre_linea, estado = :estado  
+  static public function update($data)
+  {
+
+
+
+
+
+
+    $update = Conexion::Connect()->prepare("UPDATE lineas SET Nombre_linea = :Nombre_linea, estado = :estado  
             WHERE idLineas = :id");
-        
-             /**Asignar parametros*/         
-            $update -> bindParam(":id",$data["idLineas"], PDO::PARAM_INT);
-            $update -> bindParam(":Nombre_linea",$data["Nombre_linea"], PDO::PARAM_STR);
-            $update -> bindParam(":estado",$data["estado"], PDO::PARAM_STR);
-           
-  
-            /** Ejecutar la consulta y retornar el resultado al controlador */
-            if($update -> execute()){
-                return "Ok";
-            }
-            else
-            {
-              
-                echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-                echo '<script>
+
+    /**Asignar parametros*/
+    $update->bindParam(":id", $data["idLineas"], PDO::PARAM_INT);
+    $update->bindParam(":Nombre_linea", $data["Nombre_linea"], PDO::PARAM_STR);
+    $update->bindParam(":estado", $data["estado"], PDO::PARAM_STR);
+
+
+    /** Ejecutar la consulta y retornar el resultado al controlador */
+    if ($update->execute()) {
+      return "Ok";
+    } else {
+
+      echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+      echo '<script>
                            
                     Swal.fire({
                       icon: "error",
@@ -147,13 +146,14 @@ class LineasModel
                                   }
                               });
                   </script>';
-              } ;
-            
-  
-            /** Cerrar conexion a la bd */
-           
-  
-        }
+    }
+    ;
+
+
+    /** Cerrar conexion a la bd */
+
+
+  }
 }
 
 

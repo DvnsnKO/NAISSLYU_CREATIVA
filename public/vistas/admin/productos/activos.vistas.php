@@ -60,7 +60,7 @@
                                           <td>'. $Producto["Precio_uni"] .'</td>
                                           <td>
                                             <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Consultar</a>
-                                            <a href="#" class="btn btn-success btn-sm"><i class="far fa-edit nav-icon"></i> <span></i> <span>Editar</a>
+                                            <a href="indexadmin.php?rutaadmin=actualizar_productos&id='.$Producto["Codigo_producto"].'" class="btn btn-success btn-sm"><i class="far fa-edit nav-icon"></i> <span></i> <span>Editar</a>
                                             <a href="#" class="btn btn-danger btn-sm" Id =""><i class="fa fa-trash nav-icon"></i> <span>Eliminar</span></a>
                                           </td>
                                         </tr>';
