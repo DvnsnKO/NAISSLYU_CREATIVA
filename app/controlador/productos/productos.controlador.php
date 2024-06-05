@@ -95,6 +95,9 @@ class ProductoControlador
             echo "Faltan datos en el formulario.";
         }
     }
+    static public function Update(){
+        
+    } 
 }
 ?>
 
