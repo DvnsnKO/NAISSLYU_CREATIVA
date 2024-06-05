@@ -92,6 +92,76 @@ class ProductoModel
       }
     }
   }
+  static public function show($id)
+  {
+    /** Realizar la consulta a la base de datos */
+    $data = Conexion::connect()->prepare("SELECT *  FROM productos  WHERE Codigo_producto = :id");
+
+    /** Inicializar los parametros de la consulta */
+    $data->bindParam(":id", $id, PDO::PARAM_INT);
+
+    /**Ejecutar la consulta */
+    $data->execute();
+
+    /** Devuelve el registro consultado */
+    return $data->fetch();
+
+    /**Cerrar conexion a la bd */
+
+  }
+  static public function update($data)
+  {
+
+
+
+
+
+
+    $update = Conexion::Connect()->prepare("UPDATE productos SET  Nombre = :Nombre, 
+    Lineas_idLineas = :Lineas_idLineas, Cant_disp = :Cant_disp, Descripcion = :Descripcion,  Precio_uni = :Precio_uni
+    WHERE Codigo_producto = :id ");
+
+
+/**Asignar parametros*/
+$update->bindParam(":id", $data["Codigo_producto"], PDO::PARAM_STR);
+$update->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);        
+
+$update->bindParam(":Lineas_idLineas", $data["Lineas_idLineas"], PDO::PARAM_INT);
+$update->bindParam(":Cant_disp", $data["Cant_disp"], PDO::PARAM_INT);
+$update->bindParam(":Descripcion", $data["Descripcion"], PDO::PARAM_STR);
+$update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
+
+
+
+    /** Ejecutar la consulta y retornar el resultado al controlador */
+    if ($update->execute()) {
+      return "Ok";
+    } else {
+
+      echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+      echo '<script>
+                           
+                    Swal.fire({
+                      icon: "error",
+                      title: "error al actualizar.",
+                  
+                      showConfirmButton: true,
+                      confirmButtonText: "Aceptar"
+                      }).then(function(result){
+                                  if (result.value) {
+                                      /**Redireccionar a la página principal de CRM */
+                                      window.location.href = "indexadmin.php?rutaadmin=actualizar_productos";
+                                  }
+                              });
+                  </script>';
+    }
+    ;
+
+
+    /** Cerrar conexion a la bd */
+
+
+  }
 }
 
 

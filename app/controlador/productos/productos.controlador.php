@@ -95,6 +95,66 @@ class ProductoControlador
             echo "Faltan datos en el formulario.";
         }
     }
+    static public function show()
+    {
+  
+      return $data = ProductoModel::show($_GET["id"]);
+  
+    }
+    static public function update()
+    {
+  
+  
+      /** Validar que existan las variables recibidas del formulario */
+      if (
+        isset($_POST["Codigo_producto"]) &&
+            isset($_POST["Nombre"]) &&
+            isset($_POST["Precio_uni"]) &&
+            isset($_POST["Descripcion"]) &&
+            isset($_POST["Cant_disp"]) &&
+            isset($_POST["Lineas_idLineas"])
+  
+  
+  
+  
+      ) {
+        $data = array(
+            "Codigo_producto" => $_POST["Codigo_producto"],
+            "Nombre" => $_POST["Nombre"],
+            "Precio_uni" => $_POST["Precio_uni"],
+            "Descripcion" => $_POST["Descripcion"],
+            "Cant_disp" => $_POST["Cant_disp"],
+            "Lineas_idLineas" => $_POST["Lineas_idLineas"],
+           
+          );
+  
+  
+        /**Llamar al modelo para actualizar el registro */
+        $response = ProductoModel::update($data);
+  
+        /** validar la respuesta del modelo  */
+        if ($response == "Ok") {
+          echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+          echo '<script>
+                      
+                              Swal.fire({
+                                  icon: "success",
+                                  title: "el producto ha sido actualizado de forma correcta.",
+                              
+                                 showConfirmButton: true,
+                                  confirmButtonText: "Ok"
+                                  }).then(function(result){
+                                              if (result.value) {
+                                                  /**Redireccionar a la página principal de categorias de producto */
+                                                  window.location.href = "indexadmin.php?rutaadmin=activos";
+                                              }
+                                          })
+                      </script>';
+        } else {
+          echo "ocurrio un error";
+        }
+      }
+    }
 }
 ?>
 
