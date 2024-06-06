@@ -1,5 +1,5 @@
 
-<?php
+<?php 
  /*Creado para modificar los datos de los usuarios por parte del administrados
  El Admin podra modificar todos los datos, incluyendo la contraseña*/
 
@@ -24,15 +24,16 @@ class UsuariosControlador
     
     /** Validar que vengan datos en las variables pasadas desde la vista */
     if (
-     
       isset($_POST["Nombres"])
       && isset($_POST["Correo"])
       && isset($_POST["Celular"])
       && isset($_POST["Contrasenia"])
-      
-     
-     
+      // && isset($_POST["Departamento"])
+      // && isset($_POST["Direccion"])
+       && isset($_POST["Rol"])
+       && isset($_POST["Activo"])
 
+ 
     ) {
       $data = array(
         
@@ -40,7 +41,11 @@ class UsuariosControlador
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
         "Contrasenia" => $_POST["Contrasenia"],     
-        "Rol" => $_POST["Rol"],       
+        "Rol" => $_POST["Rol"], 
+        "Activo" => $_POST["Activo"],     
+        // "Departamento" => $_POST["Departamento"],       
+        // "Direccion" => $_POST["Direccion"],       
+    
         
       );
 
@@ -71,7 +76,21 @@ class UsuariosControlador
           </script>';
 
       } else {
-        echo "error controlador";
+        echo '<script>
+                   
+        Swal.fire({
+          icon: "error",
+          title: "usuario no creado exitosamente",
+      
+          showConfirmButton: true,
+          confirmButtonText: "Aceptar"
+          }).then(function(result){
+                      if (result.value) {
+                          /**Redireccionar a la página principal de productos */
+                          window.location.href = "indexadmin.php?rutaadmin=usuarios";
+                      }
+                  });
+      </script>';
       }
     }
 
