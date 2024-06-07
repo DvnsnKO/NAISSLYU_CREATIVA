@@ -154,6 +154,37 @@ class LineasModel
 
 
   }
+  static public function delete($id)
+  {
+    try {
+
+     
+
+      /** Armar la consulta a la base de datos para inactivar y no eliminar */
+      $update = Conexion::Connect()->prepare("UPDATE lineas SET estado = 0
+        WHERE idLineas = :id");
+
+      /**Asignar parametros*/
+      $update->bindParam(":id", $id, PDO::PARAM_INT);
+
+      //** ojo!!!!!! cambiar el 1 potr el usuario logueado en la aplicación, mas adelantre hacemos esto */
+      //update -> bindParam(":userId", , PDO::PARAM_INT);
+
+      /**Ejecutar la consulta */
+      if ($update->execute()) {
+
+        return "Ok";
+      } else {
+        return "Error";
+      }
+      /**Cerrar conexion a la bd */
+     
+    } catch (Exception $e) {
+      echo $e->getMessage();
+      die();
+    }
+  }
+
 }
 
 

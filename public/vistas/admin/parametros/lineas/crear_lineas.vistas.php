@@ -4,12 +4,11 @@ require_once './app/controlador/lineas/lineas.controlador.php';
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="container">
-        <h2>Agregar Linea</h2>
+    <div class="content-header ">
+        <h3>Agregar Linea</h3>
         <form action="" method="post">
-            <div class="row">
-                <div class="col-12">
-
+            <div class="row ">
+                <div class="col-8">
 
 
                     <div class="form-group green-box">
@@ -25,9 +24,15 @@ require_once './app/controlador/lineas/lineas.controlador.php';
         </form>
     </div>
     <?php
-    /**
-     * Llamar a la función del controlador: Crear 
-     */
-    $addlineaModel = LineasControlador::create();
 
-    ?>
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
+    if (!empty($_POST["Nombre_linea"])) {
+        
+        $addlineaModel = LineasControlador::create();
+    } else {
+        // Manejar el caso en que "Nombre_linea" está vacío
+        echo "El campo Nombre_linea no puede estar vacío.";
+    }
+}
+?>
