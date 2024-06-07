@@ -37,7 +37,7 @@ class PersonasModel
 
     //-- Validar que no exista un registro con el mismo codifo
 
-    $exist = Conexion::connect()->prepare("SELECT  Nombres, Correo, Celular, Contrasenia, Rol  from personas where Correo = :code");
+    $exist = Conexion::connect()->prepare("SELECT  Nombres, Correo, Celular, Contrasenia, Rol, Departamento, Direccion, Activo from personas where Correo = :code");
 
     // 2- Asignar parametros
     $exist->bindParam(":code", $data["Correo"], PDO::PARAM_STR);
@@ -70,8 +70,8 @@ class PersonasModel
           </script>';
       } else {
         // 1 - Crear la consulta para inserción en la tabla
-        $create = Conexion::connect()->prepare("INSERT INTO personas (Nombres, Correo, Celular, Contrasenia, Rol)
-                VALUES( :Nombres, :Correo, :Celular, :Contrasenia, :Rol)");
+        $create = Conexion::connect()->prepare("INSERT INTO personas (Nombres, Correo, Celular, Contrasenia, Rol, Departamento, Direccion, Activo)
+                VALUES( :Nombres, :Correo, :Celular, :Contrasenia, :Rol, :Departamento, :Direccion, :Activo)");
 
 
         /**Asignar parametros*/
@@ -81,8 +81,9 @@ class PersonasModel
         $create->bindParam(":Celular", $data["Celular"], PDO::PARAM_INT);
         $create->bindParam(":Rol", $data["Rol"], PDO::PARAM_STR);
         $create->bindParam(":Contrasenia", $data["Contrasenia"], PDO::PARAM_INT);
-       
-
+        $create->bindParam(":Departamento", $data["Departamento"], PDO::PARAM_INT);
+        $create->bindParam(":Direccion", $data["Direccion"], PDO::PARAM_INT);
+        $create->bindParam(":Activo", $data["Activo"], PDO::PARAM_INT);
         /**Ejecutar la consulta */
         if ($create->execute()) {
           return "Ok";

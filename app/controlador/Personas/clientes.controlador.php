@@ -19,7 +19,10 @@ class ClientesControlador
       && isset($_POST["Correo"])
       && isset($_POST["Celular"])
       && isset($_POST["Contrasenia"])
-     
+      && isset($_POST["Direccion"])
+      && isset($_POST["Departamento"])
+      && isset($_POST["Activo"])
+
      
 
     ) {
@@ -29,6 +32,9 @@ class ClientesControlador
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
         "Contrasenia" => $_POST["Contrasenia"],     
+        "Direccion" => $_POST["Direccion"],     
+        "Departamento" => $_POST["Departamento"],     
+        "Activo" => $_POST["Activo"],     
 
         //se establece por defecto que todas las personas registradas tendran este rol
         

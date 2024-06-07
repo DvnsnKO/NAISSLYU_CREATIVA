@@ -29,9 +29,10 @@
                                         <th >#</th>
                                         <th >OK</th>
                                         <th >TIPO</th>
-
-                                        <th>Detalles</th>
-                                        
+                                        <th>Estado</th>
+                                        <th>Detalles</th>  
+                                        <th>Departamento</th>                                     
+                                        <th>Direccion</th>                                                                        
                                         <th>Fecha registro</th>
                                         <th >Opciones</th>
                                     </tr>
@@ -58,15 +59,17 @@
                                             <i class="fas fa-check success t24"></i>
                                         </td>
                                         <td class="vM">' . $Persona["Rol"] . '</td>
-                                        
+                                        <td class="vM">' . $Persona["Activo"] . '</td> 
                                         <td class="vM">
                                        ' . $Persona["Nombres"] .
                                         ' <br><small> ' .  $Persona["Correo"] .
                                         '</small><br><small>' .  $Persona["Celular"] . ' </small> </td>
+                                        <td class="vM">' . $Persona["Departamento"] . '</td>
+                                        <td class="vM">' . $Persona["Direccion"] . '</td>
                                         <td class="vM">' . $Persona["Fecha_inscrito"] . '</td>
                                         <td>
-                                        <a href="#" class="btn btn-warning btn-sm" title="cambiar contraseña"><i class="fas fa-yin-yang"></i> </a>
-                                        <a href="#" class="btn btn-success btn-sm" title="editar"><i class="far fa-edit nav-icon"></i> <span></i> </a>
+                                        <a href="#" class="btn btn-warning btn-sm" title="Mostrar"><i class="fas fa-eye"></i></a>
+                                        <a class="btn btn-success btn-sm" href="indexadmin.php?rutaadmin=personas.actualizar&id='.$Persona["Id_persona"].'" title="editar"><i class="far fa-edit nav-icon"></i><span></i> </a>
                                         <a href="#" class="btn btn-danger btn-sm"  title="eliminar"><i class="fa fa-trash nav-icon"></i> </a>
                                       </td>
                                     </tr>

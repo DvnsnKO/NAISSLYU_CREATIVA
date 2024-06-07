@@ -26,7 +26,7 @@
                             <table class="table table-bordered table-hover mb-0">
                                 <thead>
                                     <tr>
-                                        <th width="50">#</th>
+                                        <th >#</th>
                                         <th width="50">OK</th>
                                         <th width="50">TIPO</th>
 
@@ -34,7 +34,7 @@
                                         <th>Email</th>
                                         <th>Celular</th>
                                         <th>Fecha</th>
-                                        <th width="100">Opciones</th>
+                                        <th >Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
