@@ -89,32 +89,28 @@ class UsuariosControlador
     /** Validar que existan las variables recibidas del formulario */
     if (
       isset($_POST["Nombres"])
-      && isset($_POST["Correo"])
-      && isset($_POST["Celular"])
-      && isset($_POST["Contrasenia"])
-      && isset($_POST["Departamento"])
-      && isset($_POST["Direccion"])
-       && isset($_POST["Rol"])
-       && isset($_POST["Activo"])
+      || isset($_POST["Correo"])
+      || isset($_POST["Celular"])
+      || isset($_POST["Contrasenia"])   
+      || isset($_POST["Rol"])
+      || isset($_POST["Activo"])
     ) {
       $data = array(
         "Nombres" => $_POST["Nombres"],
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
-        "Contrasenia" => $_POST["Contrasenia"],     
-        "Departamento" => $_POST["Departamento"],       
-        "Direccion" => $_POST["Direccion"],       
+        "Contrasenia" => $_POST["Contrasenia"],          
         "Rol" => $_POST["Rol"], 
         "Activo" => 1,
         );
 
 
       /**Llamar al modelo para actualizar el registro */
-      $response = LineasModel::update($data);
+      $response = usuariosModel::update($data);
 
       /** validar la respuesta del modelo  */
       if ($response == "Ok") {
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        
         echo '<script>
                     
                             Swal.fire({
@@ -126,7 +122,7 @@ class UsuariosControlador
                                 }).then(function(result){
                                             if (result.value) {
                                                 /**Redireccionar a la página principal de categorias de producto */
-                                                window.location.href = "indexadmin.php?rutaadmin=lineas";
+                                                window.location.href = "indexadmin.php?rutaadmin=usuarios";
                                             }
                                         })
 					</script>';

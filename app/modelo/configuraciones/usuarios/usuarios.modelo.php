@@ -114,16 +114,16 @@ class usuariosModel
   }
   static public function update($data)
   {
-    $update = Conexion::Connect()->prepare("UPDATE personas SET Nombres= :nombre, Correo= :correo, Celular= :celular, Contrasenia= :contrasenia, Rol= :rol
+    $update = Conexion::Connect()->prepare("UPDATE personas SET Nombres = :Nombres, Correo= :Correo, Celular= :Celular, Contrasenia= :Contrasenia, Rol= :Rol
             WHERE Id_persona = :id");
 
     /**Asignar parametros*/
     $update->bindParam(":id", $data["Id_persona"], PDO::PARAM_INT);
-    $update->bindParam(":nombre", $data["Nombres"], PDO::PARAM_STR);
-    $update->bindParam(":correo", $data["Correo"], PDO::PARAM_STR);
-    $update->bindParam(":celular", $data["Celular"], PDO::PARAM_INT);
-    $update->bindParam(":contrasenia", $data["Contrasenia"], PDO::PARAM_STR);
-    $update->bindParam(":rol", $data["Rol"], PDO::PARAM_STR);
+    $update->bindParam(":Nombres", $data["Nombres"], PDO::PARAM_STR);
+    $update->bindParam(":Correo", $data["Correo"], PDO::PARAM_STR);
+    $update->bindParam(":Celular", $data["Celular"], PDO::PARAM_INT);
+    $update->bindParam(":Contrasenia", $data["Contrasenia"], PDO::PARAM_STR);
+    $update->bindParam(":Rol", $data["Rol"], PDO::PARAM_STR);
 
 
     /** Ejecutar la consulta y retornar el resultado al controlador */
@@ -143,7 +143,7 @@ class usuariosModel
                       }).then(function(result){
                                   if (result.value) {
                                       /**Redireccionar a la página principal de CRM */
-                                      window.location.href = "indexadmin.php?rutaadmin=lineas.actualizar";
+                                      window.location.href = "indexadmin.php?rutaadmin=personas.actualizar";
                                   }
                               });
                   </script>';
