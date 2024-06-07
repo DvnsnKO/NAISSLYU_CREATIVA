@@ -39,8 +39,7 @@ class UsuariosControlador
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
         "Contrasenia" => $_POST["Contrasenia"],     
-        "Departamento" => $_POST["Departamento"],       
-        "Direccion" => $_POST["Direccion"],       
+         
         "Rol" => $_POST["Rol"], 
         "Activo" => 1,
       );
@@ -88,23 +87,22 @@ class UsuariosControlador
 
     /** Validar que existan las variables recibidas del formulario */
     if (
-      isset($_POST["Nombres"])
-      || isset($_POST["Correo"])
-      || isset($_POST["Celular"])
-      || isset($_POST["Contrasenia"])   
-      || isset($_POST["Rol"])
-      || isset($_POST["Activo"])
-    ) {
+      isset($_POST["Nombres"]) &&
+      isset($_POST["Correo"]) &&
+      isset($_POST["Id_persona"]) && // Asegúrate de que esta variable esté incluida en la condición
+      isset($_POST["Celular"]) &&
+      isset($_POST["Contrasenia"]) &&
+      isset($_POST["Rol"])
+  ) {
       $data = array(
-        "Nombres" => $_POST["Nombres"],
-        "Correo" => $_POST["Correo"],
-        "Celular" => $_POST["Celular"],    
-        "Contrasenia" => $_POST["Contrasenia"],          
-        "Rol" => $_POST["Rol"], 
-        "Activo" => 1,
-        );
-
-
+          "Nombres" => $_POST["Nombres"],
+          "Correo" => $_POST["Correo"],
+          "Id_persona" => $_POST["Id_persona"],
+          "Celular" => $_POST["Celular"],
+          "Contrasenia" => $_POST["Contrasenia"],
+          "Rol" => $_POST["Rol"],
+          "Activo" => 1
+      );
       /**Llamar al modelo para actualizar el registro */
       $response = usuariosModel::update($data);
 

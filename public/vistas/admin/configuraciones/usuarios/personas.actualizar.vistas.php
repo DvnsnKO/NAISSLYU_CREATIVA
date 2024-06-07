@@ -14,7 +14,15 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
                 /* Consultar el registro por medio del id pasado por la url */
                 $showpersona = UsuariosControlador::show();
 
-                echo '<div class="col-6 form-group green-box">
+                echo '
+                <div class="col-6 form-group green-box">
+                
+                <label for="admin_">Nombre completo:</label>
+    <input type="text" class="form-control" id="admin_Nombres" name="Nombres" value="' . $showpersona["Id_persona"] . '" readonly>
+    </div>
+
+                <div class="col-6 form-group green-box">
+                
     <label for="admin_">Nombre completo:</label>
     <input type="text" class="form-control" id="admin_Nombres" name="Nombres" value="' . $showpersona["Nombres"] . '">
 </div>
