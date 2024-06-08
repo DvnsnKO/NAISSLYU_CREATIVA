@@ -115,10 +115,10 @@ class usuariosModel
   static public function update($data)
   {
     $update = Conexion::Connect()->prepare("UPDATE personas SET Nombres= :nombre, Correo= :correo, Celular= :celular, Contrasenia= :contrasenia, Rol= :rol
-            WHERE Id_persona = :Id");
+            WHERE Id_persona = :id");
 
     /**Asignar parametros*/
-    $update->bindParam(":Id", $data["Id"], PDO::PARAM_INT);
+    $update->bindParam(":id", $data["Id_persona"], PDO::PARAM_INT);
     $update->bindParam(":nombre", $data["Nombres"], PDO::PARAM_STR);
     $update->bindParam(":correo", $data["Correo"], PDO::PARAM_STR);
     $update->bindParam(":celular", $data["Celular"], PDO::PARAM_INT);
@@ -143,7 +143,7 @@ class usuariosModel
                       }).then(function(result){
                                   if (result.value) {
                                       /**Redireccionar a la página principal de CRM */
-                                      window.location.href = "indexadmin.php?rutaadmin=lineas.actualizar";
+                                      window.location.href = "indexadmin.php?rutaadmin=personas.actualizar";
                                   }
                               });
                   </script>';

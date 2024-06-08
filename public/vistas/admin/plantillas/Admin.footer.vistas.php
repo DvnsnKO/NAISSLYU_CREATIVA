@@ -1,4 +1,3 @@
-
 </main>
 <footer class="main-footer">
   <div class="float-right d-none d-sm-block">
@@ -17,9 +16,14 @@
 <script src="./public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="./public/dist/js/adminlte.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="./public/dist/js/demo.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<script src="./public/dist/js/plantilla.js"></script>
+<script src="./public/dist/js/categoria.js"></script>
+<script src="./public/dist/js/marca.js"></script>
+
 </body>
 
 </html>

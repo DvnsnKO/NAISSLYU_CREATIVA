@@ -101,7 +101,7 @@ class LineasControlador
 
       /** validar la respuesta del modelo  */
       if ($response == "Ok") {
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+       
         echo '<script>
                     
                             Swal.fire({
@@ -122,6 +122,40 @@ class LineasControlador
       }
     }
   }
+  static public function delete() {
+    //** Valñidar la variable id que exista y contenga un valor no nulo */
+    if(isset($_GET["id"]))
+    {
+
+        $response = LineasModel::delete($_GET["id"]);
+
+        if($response == "Ok" )
+            {
+            
+                /** Enviar mensaje de eliminación correcta */
+                echo '<script>
+                
+                    Swal.fire({
+                        icon: "success",
+                        title: "La Linea ha sido eliminada.",
+                    
+                    showConfirmButton: true,
+                        confirmButtonText: "Ok"
+                        }).then(function(result){
+                                    if (result.value) {
+                                        /**Redireccionar a la página principal de marcas de producto*/
+                                        window.location.href = "indexadmin.php?rutaadmin=lineas";
+                                    }
+                                })
+                </script>';
+            }
+            else
+            {
+                echo "error";
+            }
+
+    }
+}
 }
 
 

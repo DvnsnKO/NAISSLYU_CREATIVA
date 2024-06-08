@@ -39,8 +39,7 @@ class UsuariosControlador
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
         "Contrasenia" => $_POST["Contrasenia"],     
-        "Departamento" => $_POST["Departamento"],       
-        "Direccion" => $_POST["Direccion"],       
+         
         "Rol" => $_POST["Rol"], 
         "Activo" => 1,
       );
@@ -88,16 +87,15 @@ class UsuariosControlador
 
     /** Validar que existan las variables recibidas del formulario */
     if (
-      isset($_POST["Nombres"])
-      && isset($_POST["Correo"])
-      && isset($_POST["Celular"])
-      && isset($_POST["Contrasenia"])
-      && isset($_POST["Departamento"])
-      && isset($_POST["Direccion"])
-       && isset($_POST["Rol"])
-       && isset($_POST["Activo"])
-    ) {
+      isset($_POST["Nombres"]) &&
+      isset($_POST["Correo"]) &&
+      isset($_POST["Id_persona"]) && // Asegúrate de que esta variable esté incluida en la condición
+      isset($_POST["Celular"]) &&
+      isset($_POST["Contrasenia"]) &&
+      isset($_POST["Rol"])
+  ) {
       $data = array(
+<<<<<<< HEAD
         "Nombres" => $_POST["Nombres"],
         "Id" => $_POST["Id_persona"],
         "Correo" => $_POST["Correo"],
@@ -109,12 +107,22 @@ class UsuariosControlador
                 );
 
 
+=======
+          "Nombres" => $_POST["Nombres"],
+          "Correo" => $_POST["Correo"],
+          "Id_persona" => $_POST["Id_persona"],
+          "Celular" => $_POST["Celular"],
+          "Contrasenia" => $_POST["Contrasenia"],
+          "Rol" => $_POST["Rol"],
+          "Activo" => 1
+      );
+>>>>>>> bd0c5c5ea597502fa6c822b85f253e937e83f2b0
       /**Llamar al modelo para actualizar el registro */
-      $response = LineasModel::update($data);
+      $response = usuariosModel::update($data);
 
       /** validar la respuesta del modelo  */
       if ($response == "Ok") {
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        
         echo '<script>
                     
                             Swal.fire({
@@ -126,7 +134,7 @@ class UsuariosControlador
                                 }).then(function(result){
                                             if (result.value) {
                                                 /**Redireccionar a la página principal de categorias de producto */
-                                                window.location.href = "indexadmin.php?rutaadmin=lineas";
+                                                window.location.href = "indexadmin.php?rutaadmin=usuarios";
                                             }
                                         })
 					</script>';

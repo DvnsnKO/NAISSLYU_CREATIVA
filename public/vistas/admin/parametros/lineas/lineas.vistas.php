@@ -29,12 +29,13 @@
 
                         
                        
-                        <table id="datatables" class="table table-sm table-striped table-bordered table-hover datatable">
+                        <table id="datatable" class="table table-sm table-striped table-bordered table-hover datatable">
                                     <thead class="table-header">
                                       <tr>
-                                        <th width="30%">ID LINEA</th>                                  
-                                        <th width="40%">NOMBRE DE LA LINEA</th>
-                                        <th width="30%">opciones</th>
+                                        <th class="col-1">Id linea</th>                                  
+                                        <th >Nombre de la linea</th>
+                                        <th >Estado</th>
+                                        <th class="col-1">Opciones</th>
                                         
                                       </tr>
                                     </thead>
@@ -51,14 +52,25 @@
                                         $Lineas = lineasControlador::index();
                                         foreach($Lineas as $key => $Linea){
                                           
-                                         echo ' <tr>
+                                         echo '
+                                         
+                                         <tr>
                                           <td>'. $Linea["idLineas"] .'</td>
                                           <td>'. $Linea["Nombre_linea"] .'</td>
-                                          
+                                          <td>';
+                                          if (($Linea["estado"])==1){
+                                            echo "Activo";
+
+                                          }else{
+                                            echo "inactivo";
+
+                                          }
+
+                                          echo '
                                           <td>
                                             
-                                            <a href="indexadmin.php?rutaadmin=lineas.actualizar&id='.$Linea["idLineas"].'" class="btn btn-success btn-sm"><i class="far fa-edit nav-icon"></i> <span></i> <span>Editar</a>
-                                            
+                                            <a href="indexadmin.php?rutaadmin=lineas.actualizar&id='.$Linea["idLineas"].'" class="btn btn-success btn-sm" title="Editar"><i class="far fa-edit nav-icon"></i> <span></i> <span></a>
+                                            <a href="#" class="btn btn-danger btn-sm btnDelMarca" id ="'.$Linea["idLineas"].'  title="Eliminar"><i class="fa fa-trash nav-icon"></i> </a>
                                           </td>
                                         </tr>';
 
@@ -86,4 +98,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
+
+<?php
+
+$lineaDelete = LineasControlador::delete();
+?>

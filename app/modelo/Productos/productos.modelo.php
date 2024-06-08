@@ -72,8 +72,7 @@ class ProductoModel
 
         /**Asignar parametros*/
         $create->bindParam(":Codigo_producto", $data["Codigo_producto"], PDO::PARAM_STR);
-        $create->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);        
-      
+        $create->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);      
         $create->bindParam(":Lineas_idLineas", $data["Lineas_idLineas"], PDO::PARAM_INT);
         $create->bindParam(":Cant_disp", $data["Cant_disp"], PDO::PARAM_INT);
         $create->bindParam(":Descripcion", $data["Descripcion"], PDO::PARAM_STR);
@@ -124,7 +123,7 @@ class ProductoModel
 
 /**Asignar parametros*/
 $update->bindParam(":id", $data["Codigo_producto"], PDO::PARAM_STR);
-$update->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);        
+$update->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);       
 
 $update->bindParam(":Lineas_idLineas", $data["Lineas_idLineas"], PDO::PARAM_INT);
 $update->bindParam(":Cant_disp", $data["Cant_disp"], PDO::PARAM_INT);
