@@ -7,7 +7,6 @@ $(document).on("click", ".btnDelMarca", function(){
   
   Swal.fire({
     title: '¿Está seguro de eliminar la Marca de producto?',
-    text: "¡De lo contrario cancele la acción!",
     icon: "question",
     type: 'warning',
     showCancelButton: true,

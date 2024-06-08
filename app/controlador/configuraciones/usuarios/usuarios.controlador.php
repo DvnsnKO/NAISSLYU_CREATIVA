@@ -87,36 +87,21 @@ class UsuariosControlador
 
     /** Validar que existan las variables recibidas del formulario */
     if (
-      isset($_POST["Nombres"]) &&
-      isset($_POST["Correo"]) &&
-      isset($_POST["Id_persona"]) && // Asegúrate de que esta variable esté incluida en la condición
-      isset($_POST["Celular"]) &&
-      isset($_POST["Contrasenia"]) &&
+      isset($_POST["Nombres"])|| 
+      isset($_POST["Correo"]) ||
+      isset($_POST["Id_persona"]) || // Asegúrate de que esta variable esté incluida en la condición
+      isset($_POST["Celular"]) ||
+      isset($_POST["Contrasenia"]) ||
       isset($_POST["Rol"])
   ) {
       $data = array(
-<<<<<<< HEAD
-        "Nombres" => $_POST["Nombres"],
-        "Id" => $_POST["Id_persona"],
-        "Correo" => $_POST["Correo"],
-        "Celular" => $_POST["Celular"],    
-        "Contrasenia" => $_POST["Contrasenia"],     
-        // "Departamento" => $_POST["Departamento"],       
-        // "Direccion" => $_POST["Direccion"],       
-        "Rol" => $_POST["Rol"], 
-                );
-
-
-=======
           "Nombres" => $_POST["Nombres"],
           "Correo" => $_POST["Correo"],
           "Id_persona" => $_POST["Id_persona"],
           "Celular" => $_POST["Celular"],
           "Contrasenia" => $_POST["Contrasenia"],
           "Rol" => $_POST["Rol"],
-          "Activo" => 1
       );
->>>>>>> bd0c5c5ea597502fa6c822b85f253e937e83f2b0
       /**Llamar al modelo para actualizar el registro */
       $response = usuariosModel::update($data);
 
@@ -143,6 +128,40 @@ class UsuariosControlador
       }
     }
   }
+  static public function delete() {
+    //** Valñidar la variable id que exista y contenga un valor no nulo */
+    if(isset($_GET["id"]))
+    {
+
+        $response = usuariosModel::delete($_GET["id"]);
+
+        if($response == "Ok" )
+            {
+            
+                /** Enviar mensaje de eliminación correcta */
+                echo '<script>
+                
+                    Swal.fire({
+                        icon: "success",
+                        title: "La Linea ha sido eliminada.",
+                    
+                    showConfirmButton: true,
+                        confirmButtonText: "Ok"
+                        }).then(function(result){
+                                    if (result.value) {
+                                        /**Redireccionar a la página principal de marcas de producto*/
+                                        window.location.href = "indexadmin.php?rutaadmin=lineas";
+                                    }
+                                })
+                </script>';
+            }
+            else
+            {
+                echo "error";
+            }
+
+    }
+}
 }
 
 

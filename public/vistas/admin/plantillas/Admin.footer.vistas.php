@@ -23,7 +23,7 @@
 <script src="./public/dist/js/plantilla.js"></script>
 <script src="./public/dist/js/categoria.js"></script>
 <script src="./public/dist/js/marca.js"></script>
-
+<script src="./public/dist/js/mensajeborrar.js"></script>
 </body>
 
 </html>

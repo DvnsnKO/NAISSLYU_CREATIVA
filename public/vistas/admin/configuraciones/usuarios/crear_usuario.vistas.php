@@ -40,14 +40,7 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
                         <option selected value="Cliente">Cliente</option>
 
                     </select>
-                    <div >
-                        <label for="admin_Celular">Departamento</label>
-                        <input type="text" class="form-control" id="departamento" name="Departamento" required>
-                    </div>
-                    <div >
-                        <label for="admin_Celular">direccion</label>
-                        <input type="text" class="form-control" id="departamento" name="Direccion" required>
-                    </div>
+        
                     <div >
                         <label for="admin_Celular">Activo</label>
                         <input type="text" class="form-control" id="activo" name="Activo" value="1" readonly>

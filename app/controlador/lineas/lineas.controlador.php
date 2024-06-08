@@ -151,7 +151,21 @@ class LineasControlador
             }
             else
             {
-                echo "error";
+                echo '<script>
+                
+                Swal.fire({
+                    icon: "error",
+                    title: "La linea no ha sido eliminada",
+                
+                showConfirmButton: true,
+                    confirmButtonText: "Ok"
+                    }).then(function(result){
+                                if (result.value) {
+                                    /**Redireccionar a la página principal de marcas de producto*/
+                                    window.location.href = "indexadmin.php?rutaadmin=usuarios";
+                                }
+                            })
+            </script>';
             }
 
     }
