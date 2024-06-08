@@ -99,14 +99,14 @@ class UsuariosControlador
     ) {
       $data = array(
         "Nombres" => $_POST["Nombres"],
+        "Id" => $_POST["Id_persona"],
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
         "Contrasenia" => $_POST["Contrasenia"],     
-        "Departamento" => $_POST["Departamento"],       
-        "Direccion" => $_POST["Direccion"],       
+        // "Departamento" => $_POST["Departamento"],       
+        // "Direccion" => $_POST["Direccion"],       
         "Rol" => $_POST["Rol"], 
-        "Activo" => 1,
-        );
+                );
 
 
       /**Llamar al modelo para actualizar el registro */

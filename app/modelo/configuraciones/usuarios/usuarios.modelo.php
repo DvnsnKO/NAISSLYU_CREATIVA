@@ -115,10 +115,10 @@ class usuariosModel
   static public function update($data)
   {
     $update = Conexion::Connect()->prepare("UPDATE personas SET Nombres= :nombre, Correo= :correo, Celular= :celular, Contrasenia= :contrasenia, Rol= :rol
-            WHERE Id_persona = :id");
+            WHERE Id_persona = :Id");
 
     /**Asignar parametros*/
-    $update->bindParam(":id", $data["Id_persona"], PDO::PARAM_INT);
+    $update->bindParam(":Id", $data["Id"], PDO::PARAM_INT);
     $update->bindParam(":nombre", $data["Nombres"], PDO::PARAM_STR);
     $update->bindParam(":correo", $data["Correo"], PDO::PARAM_STR);
     $update->bindParam(":celular", $data["Celular"], PDO::PARAM_INT);

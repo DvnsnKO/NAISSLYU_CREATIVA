@@ -15,6 +15,10 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
                 $showpersona = UsuariosControlador::show();
 
                 echo '<div class="col-6 form-group green-box">
+    <label for="Id_persona">Id:</label>
+    <input type="text" class="form-control" id="Id_persona" name="Id_persona" value="' . $showpersona["Id_persona"] . '" readonly>
+</div>
+<div class="col-6 form-group green-box">
     <label for="admin_">Nombre completo:</label>
     <input type="text" class="form-control" id="admin_Nombres" name="Nombres" value="' . $showpersona["Nombres"] . '">
 </div>
@@ -39,17 +43,7 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
     <select class="custom-select" name="Rol" id="">
         <option value="Admin">Administrador</option>
         <option selected value="Cliente">Cliente</option>
-
     </select>
-    <div >
-        <label for="admin_Celular">Departamento</label>
-        <input type="text" class="form-control" id="departamento" name="Departamento" required>
-    </div>
-    <div >
-        <label for="admin_Celular">direccion</label>
-        <input type="text" class="form-control" id="departamento" name="Direccion" required>
-    </div>
-    
 </div>
 </div>' ?>
 
@@ -61,5 +55,4 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
      * Llamar a la función del controlador: Crear 
      */
     $addusuarioModel = UsuariosControlador::update();
-
     ?>

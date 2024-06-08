@@ -54,12 +54,6 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
             <button type="submit" class="btn btn-success">Agregar</button>
         </form>
     </div>
@@ -68,5 +62,4 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
      * Llamar a la función del controlador: Crear 
      */
     $addusuarioModel = UsuariosControlador::create();
-
     ?>
