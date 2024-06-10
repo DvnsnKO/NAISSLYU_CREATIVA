@@ -54,7 +54,8 @@ class RutasModelo
         else if (
             $ruta == "usuarios" 
             || $ruta == "crear_usuario"      
-            || $ruta == "personas.actualizar"        
+            || $ruta == "personas.actualizar"  
+            || $ruta == "mostrar.usuarios"              
 
         ) {
             $pagina = "./public/vistas/admin/configuraciones/usuarios/". $ruta . ".vistas.php";

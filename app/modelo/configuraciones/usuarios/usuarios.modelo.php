@@ -114,17 +114,16 @@ class usuariosModel
   }
   static public function update($data)
   {
-    $update = Conexion::Connect()->prepare("UPDATE personas SET Activo = :Activo, Nombres = :Nombres, Correo= :Correo, Celular= :Celular, Contrasenia= :Contrasenia, Rol= :Rol
+    $update = Conexion::Connect()->prepare("UPDATE personas SET Nombres= :nombre, Correo= :correo, Celular= :celular, Contrasenia= :contrasenia, Rol= :rol
             WHERE Id_persona = :id");
 
     /**Asignar parametros*/
     $update->bindParam(":id", $data["Id_persona"], PDO::PARAM_INT);
-    $update->bindParam(":Nombres", $data["Nombres"], PDO::PARAM_STR);
-    $update->bindParam(":Correo", $data["Correo"], PDO::PARAM_STR);
-    $update->bindParam(":Celular", $data["Celular"], PDO::PARAM_INT);
-    $update->bindParam(":Contrasenia", $data["Contrasenia"], PDO::PARAM_STR);
-    $update->bindParam(":Rol", $data["Rol"], PDO::PARAM_STR);
-    $update->bindParam(":Activo", $data["Activo"], PDO::PARAM_STR);
+    $update->bindParam(":nombre", $data["Nombres"], PDO::PARAM_STR);
+    $update->bindParam(":correo", $data["Correo"], PDO::PARAM_STR);
+    $update->bindParam(":celular", $data["Celular"], PDO::PARAM_INT);
+    $update->bindParam(":contrasenia", $data["Contrasenia"], PDO::PARAM_STR);
+    $update->bindParam(":rol", $data["Rol"], PDO::PARAM_STR);
 
 
     /** Ejecutar la consulta y retornar el resultado al controlador */
@@ -155,6 +154,36 @@ class usuariosModel
     /** Cerrar conexion a la bd */
 
 
+  }
+  static public function delete($id)
+  {
+    try {
+
+     
+
+      /** Armar la consulta a la base de datos para inactivar y no eliminar */
+      $update = Conexion::Connect()->prepare("UPDATE personas SET Activo = 0
+        WHERE Id_persona = :id");
+
+      /**Asignar parametros*/
+      $update->bindParam(":id", $id, PDO::PARAM_INT);
+
+      //** ojo!!!!!! cambiar el 1 potr el usuario logueado en la aplicación, mas adelantre hacemos esto */
+      //update -> bindParam(":userId", , PDO::PARAM_INT);
+
+      /**Ejecutar la consulta */
+      if ($update->execute()) {
+
+        return "Ok";
+      } else {
+        return "Error";
+      }
+      /**Cerrar conexion a la bd */
+     
+    } catch (Exception $e) {
+      echo $e->getMessage();
+      die();
+    }
   }
 }
 

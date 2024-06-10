@@ -110,15 +110,8 @@ class LineasModel
 
   static public function update($data)
   {
-
-
-
-
-
-
     $update = Conexion::Connect()->prepare("UPDATE lineas SET Nombre_linea = :Nombre_linea, estado = :estado  
             WHERE idLineas = :id");
-
     /**Asignar parametros*/
     $update->bindParam(":id", $data["idLineas"], PDO::PARAM_INT);
     $update->bindParam(":Nombre_linea", $data["Nombre_linea"], PDO::PARAM_STR);

@@ -70,7 +70,7 @@
                                           <td>
                                             
                                             <a href="indexadmin.php?rutaadmin=lineas.actualizar&id='.$Linea["idLineas"].'" class="btn btn-success btn-sm" title="Editar"><i class="far fa-edit nav-icon"></i> <span></i> <span></a>
-                                            <a href="#" class="btn btn-danger btn-sm btnDelMarca" id ="'.$Linea["idLineas"].'  title="Eliminar"><i class="fa fa-trash nav-icon"></i> </a>
+                                            <a href="#" class="btn btn-danger btn-sm btnDelMarca" id ="'.$Linea["idLineas"].'"  title="Eliminar"><i class="fa fa-trash nav-icon"></i> </a>
                                           </td>
                                         </tr>';
 
