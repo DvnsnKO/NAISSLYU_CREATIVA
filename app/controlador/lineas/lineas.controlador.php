@@ -45,7 +45,7 @@ class LineasControlador
 
       //eNVIAR MENSAJE DE REGISTRO ALMACENADO CON ÉXITO
       if ($response == "Ok") {
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+       
 
         echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
         echo '<script>

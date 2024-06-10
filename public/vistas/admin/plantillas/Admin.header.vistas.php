@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./public/dist/js/sweetalert2/sweetalert2.min.css">
 
          <!-- js para los cuadros de mensajes -->
-         <script src="./public/dist/js/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="./public/dist/js/sweetalert2/sweetalert2.all.min.js"></script>
 
 
 </head>

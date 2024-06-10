@@ -6,8 +6,8 @@ $(document).on("click", ".btnDelMarca", function(){
   var idLinea = $(this).attr("id");
   
   Swal.fire({
-    title: '¿Está seguro de eliminar la linea el id ?',
-   
+    title: '¿Está seguro de eliminar la Marca de producto?',
+    text: "¡De lo contrario cancele la acción!",
     icon: "question",
     type: 'warning',
     showCancelButton: true,
@@ -26,4 +26,3 @@ $(document).on("click", ".btnDelMarca", function(){
   })
 
 })
-
