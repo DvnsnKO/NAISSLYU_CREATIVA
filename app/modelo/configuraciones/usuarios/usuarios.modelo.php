@@ -168,8 +168,7 @@ class usuariosModel
       /**Asignar parametros*/
       $update->bindParam(":id", $id, PDO::PARAM_INT);
 
-      //** ojo!!!!!! cambiar el 1 potr el usuario logueado en la aplicación, mas adelantre hacemos esto */
-      //update -> bindParam(":userId", , PDO::PARAM_INT);
+    
 
       /**Ejecutar la consulta */
       if ($update->execute()) {

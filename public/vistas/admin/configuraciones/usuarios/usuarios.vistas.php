@@ -60,7 +60,16 @@
                                             <i class="fas fa-check success t24"></i>
                                         </td>
                                         <td class="vM">' . $Persona["Rol"] . '</td>
-                                        <td class="vM">' . $Persona["Activo"] . '</td> 
+                                        <td class="vM">';
+                                        if (($Persona["Activo"])==1){
+                                          echo "Activo";
+
+                                        }else{
+                                          echo "Inactivo";
+
+                                        }
+
+                                        echo '</td> 
                                         <td class="vM">
                                        ' . $Persona["Nombres"] .
                                         ' <br><small> ' .  $Persona["Correo"] .
@@ -91,4 +100,4 @@
     </div>
 </div>
 <?php
-$lineaDelete = $lineaDelete =UsuariosControlador::delete();
+$UserDelete = UsuariosControlador::delete();

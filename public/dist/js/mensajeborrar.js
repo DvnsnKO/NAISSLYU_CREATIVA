@@ -6,7 +6,7 @@ $(document).on("click", ".btnDelpersona", function(){
     var idPersona = $(this).attr("id");
     
     Swal.fire({
-      title: '¿Está seguro de deshabilitar el usuario?',
+      title: '¿Desea eliminar el usuario?',
       icon: "question",
       type: 'warning',
       showCancelButton: true,
@@ -18,7 +18,7 @@ $(document).on("click", ".btnDelpersona", function(){
   
       if(result.value){
   
-        window.location = "indexadmin.php?rutaadmin=usuarios";
+        window.location = "indexadmin.php?rutaadmin=usuarios&id="+idPersona;
   
       }
   

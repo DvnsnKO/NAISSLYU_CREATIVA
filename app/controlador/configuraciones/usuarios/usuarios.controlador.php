@@ -143,14 +143,14 @@ class UsuariosControlador
                 
                     Swal.fire({
                         icon: "success",
-                        title: "La Linea ha sido eliminada.",
+                        title: "El usuario ha sido eliminado.",
                     
                     showConfirmButton: true,
                         confirmButtonText: "Ok"
                         }).then(function(result){
                                     if (result.value) {
                                         /**Redireccionar a la página principal de marcas de producto*/
-                                        window.location.href = "indexadmin.php?rutaadmin=lineas";
+                                        window.location.href = "indexadmin.php?rutaadmin=usuarios";
                                     }
                                 })
                 </script>';
