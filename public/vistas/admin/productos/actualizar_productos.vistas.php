@@ -5,7 +5,7 @@ require_once './app/controlador/productos/productos.controlador.php';
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="container">
-        <h2>Agregar Producto</h2>
+        <h2>Actualizar Producto</h2>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12">
@@ -18,8 +18,7 @@ require_once './app/controlador/productos/productos.controlador.php';
 
 
                         echo '
-                        
-                     
+                                         
 
                         <div class="col-8 align-middle">
                             <div class="form-group green-box">

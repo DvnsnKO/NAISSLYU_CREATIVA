@@ -37,6 +37,7 @@ class RutasModelo
             || $ruta == "actualizacion"
             || $ruta == "pedidos"
             || $ruta == "detalles"
+             || $ruta == "cerrarsesion"
 
         ) {
 

@@ -1,7 +1,12 @@
+<?php
+
+
+require_once "./app/controlador/Personas/sesion.controlador.php";
+?>
 
 
 <div class="container">
-<h1 style="font-size: 3rem; font-weight: bold;">Mi cuenta</h1>
+<h1 style="font-size: 3rem; font-weight: bold;">Bienvenido <?php echo $_SESSION["usuario"];?></h1>
     <!-- Content Header (Page header) -->
    
 
@@ -27,7 +32,7 @@
                             </div>
                             <div class="col-sm-12 mb-3">
 
-                                <a href="index.php?ruta=login" class="btn btn-outline-dark btn-block"><b>Cerrar sesion</b></a>
+                                <a href="index.php?ruta=cerrarsesion" class="btn btn-outline-dark btn-block"><b>Cerrar sesion</b></a>
 
                             </div>
                             
@@ -49,3 +54,5 @@
 
 </section>
 </div>
+
+

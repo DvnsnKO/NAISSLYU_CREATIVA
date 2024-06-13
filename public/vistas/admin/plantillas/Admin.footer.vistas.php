@@ -21,8 +21,8 @@
 <script src="./public/dist/js/demo.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
 <script src="./public/dist/js/plantilla.js"></script>
-<script src="./public/dist/js/marca.js"></script>
-<script src="./public/dist/js/mensajeborrar.js"></script>
+<script src="./public/dist/js/eliminacion.js"></script>
+
 </body>
 
 </html>

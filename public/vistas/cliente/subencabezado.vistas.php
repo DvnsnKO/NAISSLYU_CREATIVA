@@ -28,6 +28,8 @@
                                         <table class="table table-hover" style="background-color: white;">
                                             <tbody>
                                             <?php
+   
+
                                       
                                       require_once './app/controlador/lineas/lineas.controlador.php';
                                       
@@ -71,8 +73,16 @@
         </div>
 
         <div class="col-2 " style="font-size: 35px; "> <!--logos inicio de sesion-->
+            <?php 
             
-            <a href="index.php?ruta=login"> <i class="far fa-user-circle" style="color: gray;"></i></a>
+            if (isset($_SESSION["usuario"])) {
+                echo '<a href="index.php?ruta=perfil"> <i class="far fa-user-circle" style="color: gray;"></i></a>';
+            } else {
+                echo '<a href="index.php?ruta=login"> <i class="far fa-user-circle" style="color: gray;"></i></a>';
+            }
+            ?>
+            
+            
             <a href="index.php?ruta=envios"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>
         </div>
     </div> <!--logos inicio de sesion-->

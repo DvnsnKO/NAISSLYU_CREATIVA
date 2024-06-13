@@ -45,7 +45,7 @@ class LineasControlador
 
       //eNVIAR MENSAJE DE REGISTRO ALMACENADO CON ÉXITO
       if ($response == "Ok") {
-       
+
 
         echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
         echo '<script>
@@ -82,7 +82,7 @@ class LineasControlador
 
     /** Validar que existan las variables recibidas del formulario */
     if (
-      isset($_POST["Nombre_linea"])||
+      isset($_POST["Nombre_linea"]) ||
       isset($_POST["estado"])
 
 
@@ -93,7 +93,7 @@ class LineasControlador
         "idLineas" => $_POST["idLineas"],
         "Nombre_linea" => $_POST["Nombre_linea"],
         "estado" => $_POST["estado"],
-        );
+      );
 
 
       /**Llamar al modelo para actualizar el registro */
@@ -101,7 +101,7 @@ class LineasControlador
 
       /** validar la respuesta del modelo  */
       if ($response == "Ok") {
-       
+
         echo '<script>
                     
                             Swal.fire({
@@ -122,18 +122,17 @@ class LineasControlador
       }
     }
   }
-  static public function delete() {
+  static public function delete()
+  {
     //** Valñidar la variable id que exista y contenga un valor no nulo */
-    if(isset($_GET["id"]))
-    {
+    if (isset($_GET["id"])) {
 
-        $response = LineasModel::delete($_GET["id"]);
+      $response = LineasModel::delete($_GET["id"]);
 
-        if($response == "Ok" )
-            {
-            
-                /** Enviar mensaje de eliminación correcta */
-                echo '<script>
+      if ($response == "Ok") {
+
+        /** Enviar mensaje de eliminación correcta */
+        echo '<script>
                 
                     Swal.fire({
                         icon: "success",
@@ -148,10 +147,8 @@ class LineasControlador
                                     }
                                 })
                 </script>';
-            }
-            else
-            {
-                echo '<script>
+      } else {
+        echo '<script>
                 
                 Swal.fire({
                     icon: "error",
@@ -166,10 +163,10 @@ class LineasControlador
                                 }
                             })
             </script>';
-            }
+      }
 
     }
-}
+  }
 }
 
 

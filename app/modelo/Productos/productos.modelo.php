@@ -111,11 +111,6 @@ class ProductoModel
   static public function update($data)
   {
 
-
-
-
-
-
     $update = Conexion::Connect()->prepare("UPDATE productos SET  Nombre = :Nombre, 
     Lineas_idLineas = :Lineas_idLineas, Cant_disp = :Cant_disp, Descripcion = :Descripcion,  Precio_uni = :Precio_uni
     WHERE Codigo_producto = :id ");
@@ -137,7 +132,7 @@ $update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
       return "Ok";
     } else {
 
-      echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+    
       echo '<script>
                            
                     Swal.fire({
@@ -160,6 +155,35 @@ $update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
     /** Cerrar conexion a la bd */
 
 
+  }
+  static public function delete($id)
+  {
+    try {
+
+     
+
+      /** Armar la consulta a la base de datos para inactivar y no eliminar */
+      $update = Conexion::Connect()->prepare("UPDATE productos SET Estado = 0
+        WHERE  	Codigo_producto = :id");
+
+      /**Asignar parametros*/
+      $update->bindParam(":id", $id, PDO::PARAM_INT);
+
+   
+
+      /**Ejecutar la consulta */
+      if ($update->execute()) {
+
+        return "Ok";
+      } else {
+        return "Error";
+      }
+      /**Cerrar conexion a la bd */
+     
+    } catch (Exception $e) {
+      echo $e->getMessage();
+      die();
+    }
   }
 }
 
