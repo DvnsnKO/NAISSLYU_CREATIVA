@@ -27,19 +27,15 @@ class UsuariosControlador
       isset($_POST["Nombres"])
       && isset($_POST["Correo"])
       && isset($_POST["Celular"])
-      && isset($_POST["Contrasenia"])
-      && isset($_POST["Departamento"])
-      && isset($_POST["Direccion"])
-       && isset($_POST["Rol"])
-       && isset($_POST["Activo"])
+      && isset($_POST["Contrasenia"]) 
+       && isset($_POST["Rol"])       
     ) {
       $data = array(
         
         "Nombres" => $_POST["Nombres"],
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
-        "Contrasenia" => $_POST["Contrasenia"],     
-         
+        "Contrasenia" => $_POST["Contrasenia"], 
         "Rol" => $_POST["Rol"], 
         "Activo" => 1,
       );

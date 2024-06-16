@@ -38,6 +38,7 @@
                                         /**Lllamar al controlador para recuperar los registros de la tabla de base de datos */
                                         $Lineas = lineasControlador::index();
                                         foreach($Lineas as $key => $Linea){
+                                            if ($Linea["estado"]==1){
                                           
                                          echo '  <tr class="p-0">
                                          <td class="p-0">
@@ -47,7 +48,7 @@
                                      </tr>';
 
 
-                                        }
+                                        }}
 
 
 

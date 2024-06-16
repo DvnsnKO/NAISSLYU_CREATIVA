@@ -1,28 +1,37 @@
 <?php
 
-require_once  "./app/modelo/Personas/sesion.modelo.php";
+
+
+require_once "../../app/modelo/Personas/sesionadmin.modelo.php";
 
 
 class SesionControlador
 {
-    static public function Sesion()
+    
+    static public function Sesionadmin()
     {
         if (isset($_POST["Correo"]) && isset($_POST["Contrasenia"])) {
+            
+
             $correo = $_POST["Correo"];
             $contrasenia = $_POST["Contrasenia"];
 
-            $response = SesionModel::verificarCredenciales($correo, $contrasenia);
+            $response = SesionModel::verificaradmin($correo, $contrasenia);
 
             if ($response) {
 
                 $id_persona = $response;
 
                
-                $_SESSION["usuario"] = $id_persona;
+                $_SESSION["4dm1n"] = $id_persona;
 
+
+              
+        // Redirigir a la página deseada
+       
                 
                 echo '<script>
-                if (window.history.replaceState) {
+                 if (window.history.replaceState) {
                     window.history.replaceState(null, null, window.location.href);
                 }
                     
@@ -32,9 +41,10 @@ class SesionControlador
                         showConfirmButton: true,
                         confirmButtonText: "ok"
                         }).then(function() {       
-                        window.location.href = "index.php?ruta=perfil";
+                        window.location.href = "../../indexadmin.php?rutaadmin=dashboard";
                         })
 				</script>';
+                exit();
 
 
             } else {
@@ -45,7 +55,7 @@ class SesionControlador
                     icon: "error",
                     title: "Intente Nuevamente",
                     text: "Usuario y/o contraseña incorrectos",
-                    footer: \'<a href="index.php?ruta=recuperarcontrasenia">Olvidaste la contraseña?</a>\'
+                    
                     });
                 </script>';
             }
@@ -55,8 +65,7 @@ class SesionControlador
 
         }
     }
-
-   
+  
   
   
 

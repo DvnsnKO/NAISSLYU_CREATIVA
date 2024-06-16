@@ -52,7 +52,7 @@
                                           <td>' . $Producto["Cant_disp"] . '</td>
                                           <td>' . $Producto["Precio_uni"] . '</td>
                                           <td>
-                                           <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"title="Consultar"></i> <span></a>
+                                           <a href="indexadmin.php?rutaadmin=detalles_productos&id='.$Producto["Codigo_producto"].'" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"title="Consultar"></i> <span></a>
                                             <a href="indexadmin.php?rutaadmin=actualizar_productos&id='.$Producto["Codigo_producto"].'" class="btn btn-success btn-sm" title="Editar"><i class="far fa-edit nav-icon"></i> <span></i> <span></a>
                                           </td>
                                         </tr>';

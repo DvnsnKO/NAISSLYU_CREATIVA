@@ -31,6 +31,7 @@ class RutasModelo
             $pagina = "./public/vistas/cliente/sesion/" . $ruta . ".vistas.php";
 
         }
+        
         //logica para perfil
         else if (
             $ruta == "perfil"
@@ -40,8 +41,14 @@ class RutasModelo
              || $ruta == "cerrarsesion"
 
         ) {
+             if (isset($_SESSION["usuario"])) {
+                $pagina = "./public/vistas/cliente/sesion/perfil/" . $ruta . ".vistas.php";
+            } else {
+                // Redirigir o mostrar un mensaje de error
+                $pagina = "./public/vistas/cliente/sesion/login.vistas.php";
+            }
 
-            $pagina = "./public/vistas/cliente/sesion/perfil/" . $ruta . ".vistas.php";
+           
         } else if (
             $ruta == "compras"
             || $ruta == "envios"

@@ -10,7 +10,7 @@ require_once "./app/controlador/Personas/sesion.controlador.php";
         <div class="card-body login-card-body">
             <form action="" method="post">
                 <div class="input-group mb-3">
-                    <input type="email" name="Correo" class="form-control" placeholder="Correo Electrónico">
+                    <input type="email" name="Correo" class="form-control" placeholder="Correo Electrónico" value="da-v-inson@hotmail.com">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -18,7 +18,7 @@ require_once "./app/controlador/Personas/sesion.controlador.php";
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" name="Contrasenia" class="form-control" placeholder="Contraseña">
+                    <input type="password" name="Contrasenia" class="form-control" placeholder="Contraseña" value="Naisslyu1">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -47,6 +47,7 @@ require_once "./app/controlador/Personas/sesion.controlador.php";
         </div>
     </div>
 </div>
+
 
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

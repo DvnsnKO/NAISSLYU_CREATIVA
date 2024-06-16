@@ -18,12 +18,21 @@ class PersonasControlador
     $data = PersonasModel::index();
     return $data;
   }
+  static public function show()
+  {
+    require_once "./app/modelo/Personas/personas.modelo.php";
+
+    return $data = usuariosModel::show($_GET["id"]);
+
+  }
+
   /*static public function index()
     {
       $data = ProductoModel::index();
       return  $data;
       
     };*/
+  
   
 
   

@@ -57,7 +57,7 @@ require_once './app/controlador/productos/productos.controlador.php';
                     <select class="custom-select" name="Lineas_idLineas" id="">
                     ';
                     ?>
-                        <?php
+                        <?php 
 
                         require_once './app/controlador/lineas/lineas.controlador.php';
 
@@ -68,16 +68,35 @@ require_once './app/controlador/productos/productos.controlador.php';
 
                         foreach ($Lineas as $key => $Linea) {
 
+                            if ($Linea["idLineas"] == $showproducto["Lineas_idLineas"] ){
+                                echo '<option selected value="' . htmlspecialchars($Linea["idLineas"]) . '">' . htmlspecialchars($Linea["Nombre_linea"]) . '</option>';
 
+                            }else{
 
                             echo '<option value="' . htmlspecialchars($Linea["idLineas"]) . '">' . htmlspecialchars($Linea["Nombre_linea"]) . '</option>';
-
+                            }
                         }
-                        ?>
-                        <?php
+                        
                         echo '
 
 
+                    </select>
+                </div>
+                <div class="col-4 form-group green-box">
+                    <label for="">Estado</label>
+
+
+                    <select class="custom-select" name="Estado" id="">';
+                    if ($showproducto["Estado"] == 1 ){
+                                echo '<option selected value="1">Activo</option>
+                               <option  value="0">Inactivo</option>';
+
+                            }else{
+
+                                echo '<option  value="1">Activo</option>
+                               <option  selected value="0">Inactivo</option>';
+                            }
+                             echo '
                     </select>
                 </div>
 

@@ -11,7 +11,7 @@ class ProductoModel
   {try 
     {
       /** Realizar la consulta a la base de datos */
-      $datos = Conexion::connect()->prepare("SELECT * FROM productos");
+      $datos = Conexion::connect()->prepare("SELECT * FROM productos"); 
 
       /**Ejecutar la consulta */
       $datos->execute();
@@ -94,7 +94,10 @@ class ProductoModel
   static public function show($id)
   {
     /** Realizar la consulta a la base de datos */
-    $data = Conexion::connect()->prepare("SELECT *  FROM productos  WHERE Codigo_producto = :id");
+    $data = Conexion::connect()->prepare("SELECT p.*, l.Nombre_linea AS Nombre_linea
+FROM productos p
+INNER JOIN lineas l ON p.Lineas_idLineas = l.idLineas 
+WHERE p.Codigo_producto = :id");
 
     /** Inicializar los parametros de la consulta */
     $data->bindParam(":id", $id, PDO::PARAM_INT);
@@ -111,15 +114,15 @@ class ProductoModel
   static public function update($data)
   {
 
-    $update = Conexion::Connect()->prepare("UPDATE productos SET  Nombre = :Nombre, 
+    $update = Conexion::Connect()->prepare("UPDATE productos SET  Nombre = :Nombre, Estado = :Estado, 
     Lineas_idLineas = :Lineas_idLineas, Cant_disp = :Cant_disp, Descripcion = :Descripcion,  Precio_uni = :Precio_uni
     WHERE Codigo_producto = :id ");
 
 
 /**Asignar parametros*/
 $update->bindParam(":id", $data["Codigo_producto"], PDO::PARAM_STR);
-$update->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);       
-
+$update->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);    
+$update->bindParam(":Estado", $data["Estado"], PDO::PARAM_STR);
 $update->bindParam(":Lineas_idLineas", $data["Lineas_idLineas"], PDO::PARAM_INT);
 $update->bindParam(":Cant_disp", $data["Cant_disp"], PDO::PARAM_INT);
 $update->bindParam(":Descripcion", $data["Descripcion"], PDO::PARAM_STR);

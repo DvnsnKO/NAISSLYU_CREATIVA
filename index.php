@@ -5,8 +5,6 @@ session_start();
 
 
 
-
-
 if (isset($_GET["ruta"])) {
     require "./app/controlador/vistas/vistas_cliente.controlador.php";
 require "./app/modelo/vistas/vistas_cliente.modelo.php";

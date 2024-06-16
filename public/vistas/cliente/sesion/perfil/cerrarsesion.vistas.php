@@ -1,8 +1,17 @@
 
+<?php
 
+
+
+require_once './app/controlador/Personas/personas.controlador.php';
+
+/* Consultar el registro por medio del id pasado por la url */
+$showuser = ClientesControlador::show();
+
+?>
 
 <div class="container">
-<h1 style="font-size: 3rem; font-weight: bold;">vuelve pronto <?php echo $_SESSION["usuario"];?></h1>
+<h1 style="font-size: 3rem; font-weight: bold;">vuelve pronto <?php echo $showuser["Nombres"];?></h1>
     <!-- Content Header (Page header) -->
    
 

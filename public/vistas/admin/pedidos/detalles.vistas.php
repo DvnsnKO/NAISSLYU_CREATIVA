@@ -29,10 +29,10 @@
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover mb-0">
                                 <thead>
-                                  
+
                                     <tr>
 
-                                        
+
                                         <th>Nombre producto</th>
                                         <th>Cantidad</th>
                                         <th>Precio unitario</th>
@@ -41,47 +41,51 @@
                                         <th>Empresa</th>
 
                                         <th width="150">Opciones</th>
-                                        
+
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <?php
+                                    <tr>
+                                        <?php
+                                        require_once './app/controlador/facturas/detalles.controlador.php';
+                                        require_once './app/controlador/facturas/facturas.controlador.php';
 
-                                    require_once './app/controlador/facturas/detalles.controlador.php';
+                                        /** Llamar al controlador para recuperar los registros de la tabla de base de datos */
+                                        $Facturas = FacturasControlador::index();
+                                        $Detalles_factura = DetallesFacturaControlador::show();
 
+                                        foreach ($Detalles_factura as $Detalle_factura) {
 
-
-                                    /**Lllamar al controlador para recuperar los registros de la tabla de base de datos */
-                                    $Detalles_factura = DetallesFacturaControlador::index();
-                                    foreach ($Detalles_factura as $key =>$Detalle_factura) {
-
-                                        echo ' <tr>
-                                        
-                                        <td>' . $Detalle_factura["Nombre_producto"] . '</td>
-                                        <td>' . $Detalle_factura["Cantidad"] . '</td>
-                                        <td>' . $Detalle_factura["Precio_unit"] . '</td>
-                                        <td>' . $Detalle_factura["Valor_pagado"] . '</td>   
-                                        <td>
-                                        <input type="text" name="guia" placeholder="Digite numero de guia">                                        
-                                        </td>  
-                                        <td>
-                                        <input type="text" name="empresa_guia" placeholder="Empresa de envio">                                        
-                                        </td>   
-                                        <td>
-            <a href="#" class="btn btn-success btn-sm"></i> <span>Marcar como enviado</a>
-           
-          </td>             
-                                        
-                                      
-                                        </tr>';
-
-
-                                    }
+                                            echo '<td>' . $Detalle_factura["Nombre_producto"] . '</td>
+    <td>' . $Detalle_factura["Cantidad"] . '</td>
+   <td>' . $Detalle_factura["Precio_unit"] . '</td>
+    <td>' . $Detalle_factura["Valor_pagado"] . '</td>';
 
 
 
-                                    ?>
+                                            $encontrado = false;
+
+                                            foreach ($Facturas as $Factura) {
+                                                if ($Detalle_factura["Facturas_Id_Facturas"] == $Factura["Id_Facturas"] && $Factura["Estado_envio"] == 1) {
+                                                    echo '<td>' . $Detalle_factura["No_guia"] . ' </td>
+            <td>' . $Detalle_factura["Empresa"] . ' </td>
+            <td> <a href="javascript:history.back()" class="btn btn-success btn-sm"> Volver </a> </td>';
+                                                    $encontrado = true;
+                                                    break; // No necesitamos seguir buscando
+                                                }
+                                            }
+
+                                            if (!$encontrado) {
+                                                echo '<td> <input type="text" name="guia" placeholder="Digite numero de guia"> </td>
+        <td> <input type="text" name="empresa_guia" placeholder="Empresa de envio"> </td>
+        <td> <a href="#" class="btn btn-success btn-sm">Marcar como enviado</a> </td>';
+                                            }
+
+
+                                        }
+                                        ?>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
