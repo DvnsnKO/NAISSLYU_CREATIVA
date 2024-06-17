@@ -1,6 +1,6 @@
 <?php
 // ruta del controlador
-require_once './app/controlador/Personas/clientes.controlador.php';
+require_once './app/controlador/Personas/personas.controlador.php';
 ?>
 <div class="container">
 

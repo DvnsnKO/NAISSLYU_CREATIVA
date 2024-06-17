@@ -11,10 +11,10 @@
         <div class="col-12">
            
             <?php
-            require_once './app/controlador/productos/mostrando.controlador.php';
+            require_once './app/controlador/productos/productos.controlador.php';
 
             /** Llamar al controlador para recuperar los registros de la tabla de base de datos */
-            $Productos = ProductoControlador::index();
+            $Productos = ProductoControlador::index(); 
             $totalProductos = count($Productos);
 
             for ($i = 0; $i < $totalProductos; $i++) {

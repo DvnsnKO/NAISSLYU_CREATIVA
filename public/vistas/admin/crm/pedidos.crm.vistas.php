@@ -1,4 +1,4 @@
-<div class="container">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -29,8 +29,8 @@
                                 <thead>
                                     <tr>
 
-                                        
-                                        
+                                        <th width="150">Factura No:</th>
+                                        <th>Datos contacto</th>
                                         <th>Ciudad</th>
                                         <th>Direccion</th>
                                         <th>Total</th>
@@ -52,23 +52,16 @@
                                     foreach ($Facturas as $key => $Factura) {
 
                                         echo ' <tr>
-                                        
-                                        
+                                        <td>' . $Factura["Id_Facturas"] . '</td>
+                                        <td>' . $Factura["Nombre_persona"] . '</td>
                                         <td>' . $Factura["Ciudad"] . '</td>
                                         <td>' . $Factura["Direccion"] . '</td>
                                         <td>' . $Factura["Total_factura"] . '</td>
                                         <td>' . $Factura["Metodo_pago"] . '</td>
-                                        <td>';
-                                        
-                                        if($Factura["Estado_envio"]== 1 ){
-                                         echo 'Enviado' ;
-                                    }else{
-                                        echo 'Pendiente' ;
-                                    }
-                                    echo'</td>
+                                        <td>' . $Factura["Estado_envio"] . '</td>
 
                                         <td>
-                                        <a href="index.php?ruta=detalles&id=' . $Factura["Id_Facturas"] . '" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Detalles</a>
+                                        <a href="indexadmin.php?rutaadmin=detalles&id= ' . $Factura["Id_Facturas"] . '" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Detalles</a>
 
                                         </td>
                                         </tr>';

@@ -10,8 +10,9 @@ class ProductoModel
   public static function index()
   {try 
     {
+    
       /** Realizar la consulta a la base de datos */
-      $datos = Conexion::connect()->prepare("SELECT * FROM productos");
+      $datos = Conexion::connect()->prepare("SELECT * FROM productos WHERE Estado = 1 AND Cant_disp > 0;");
 
       /**Ejecutar la consulta */
       $datos->execute();

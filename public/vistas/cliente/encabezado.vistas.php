@@ -13,7 +13,15 @@
     <link rel="stylesheet" href="./public/dist/css/adminlte.css">
     <link rel="stylesheet" href="./public/dist/css/naisslyu.css">
  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="./public/dist/js/sweetalert2/sweetalert2.min.css">
+
+         <!-- js para los cuadros de mensajes -->
+    <script src="./public/dist/js/sweetalert2/sweetalert2.all.min.js"></script>
       <!-- SweetAlert 2 -->
    
 
@@ -24,4 +32,5 @@
 </head>
 
 <body>
+    
     <header>

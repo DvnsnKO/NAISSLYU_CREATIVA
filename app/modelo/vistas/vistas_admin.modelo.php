@@ -24,42 +24,44 @@ class RutasModelo
             $pagina = "./public/vistas/admin/pedidos/" . $ruta . ".vistas.php";
         } else if (
             $ruta == "crm"
-            || $ruta == "crear_admin"
+            || $ruta == "pedidos.crm"
+           
 
         ) {
             $pagina = "./public/vistas/admin/crm/" . $ruta . ".vistas.php";
         } else if (
             $ruta == "activos"
-            || $ruta == "crear_productos"           
+            || $ruta == "crear_productos"
             || $ruta == "inactivos"
             || $ruta == "actualizar_productos"
+            || $ruta == "detalles_productos"
 
         ) {
             $pagina = "./public/vistas/admin/productos/" . $ruta . ".vistas.php";
-        }
-        else if (
-            $ruta == "promociones"            
+        } else if (
+            $ruta == "promociones"
 
         ) {
             $pagina = "./public/vistas/admin/promociones/" . $ruta . ".vistas.php";
-        }
-        else if (
-            $ruta == "lineas" 
-            || $ruta == "crear_lineas" 
-            || $ruta == "lineas.actualizar"           
+        } else if (
+            $ruta == "lineas"
+            || $ruta == "crear_lineas"
+            || $ruta == "lineas.actualizar"
 
         ) {
-            $pagina = "./public/vistas/admin/parametros/lineas/". $ruta . ".vistas.php";
-        }
-        else if (
-            $ruta == "usuarios" 
-            || $ruta == "crear_usuario"      
-            || $ruta == "personas.actualizar"  
-            || $ruta == "mostrar.usuarios"              
+            $pagina = "./public/vistas/admin/parametros/lineas/" . $ruta . ".vistas.php";
+        } else if (
+            $ruta == "usuarios"
+            || $ruta == "crear_usuario"
+            || $ruta == "personas.actualizar"
+            || $ruta == "mostrar.usuarios"
+            || $ruta == "cerraradmin"
 
         ) {
-            $pagina = "./public/vistas/admin/configuraciones/usuarios/". $ruta . ".vistas.php";
+            $pagina = "./public/vistas/admin/configuraciones/usuarios/" . $ruta . ".vistas.php";
         }
+        
+
 
 
 

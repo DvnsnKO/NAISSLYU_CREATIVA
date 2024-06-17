@@ -142,25 +142,37 @@
                                     <?php
 
                                     require_once './app/controlador/facturas/facturas.controlador.php';
+                                  
 
 
 
                                     /**Lllamar al controlador para recuperar los registros de la tabla de base de datos */
                                     $Facturas = FacturasControlador::index();
                                     foreach ($Facturas as $key => $Factura) {
-                                        if ($Factura["Estado_envio"] == "Enviado") {
+                                        if ($Factura["Estado_envio"] == "1") {
 
                                             echo ' <tr>
-                                            <td>' . $Factura["Id_Facturas"] . '</td>
-                                            <td>' . $Factura["personas_Id_persona"] . '</td>
+                                            <td>' . $Factura["Id_Facturas"] . '</td>                                            
+                                            <td>' . $Factura["Nombre_persona"] . '</td>
                                             <td>' . $Factura["Ciudad"] . '</td>
                                             <td>' . $Factura["Direccion"] . '</td>
                                             <td>' . $Factura["Total_factura"] . '</td>
                                             <td>' . $Factura["Metodo_pago"] . '</td>
-                                            <td>' . $Factura["Estado_envio"] . '</td>
+                                            <td>' ;
+
+                                            if ($Factura["Estado_envio"] == 1 ){
+
+                                                echo 'Enviado';
+                                            }else{
+                                                echo 'Enviado';
+
+                                            }
+                                            echo '
+                                            
+                                           
 
                                             <td>
-                                            <a href="indexadmin.php?rutaadmin=detalles" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Detalles</a>
+                                            <a href="indexadmin.php?rutaadmin=detalles&id= ' . $Factura["Id_Facturas"] . ' " class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Detalles</a>
 
                                             </td>
                                             </tr>';

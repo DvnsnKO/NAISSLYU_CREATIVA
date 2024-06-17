@@ -37,7 +37,7 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
 </div>
 <div class="col-6 form-group green-box">
     <label for="admin_Celular">Contraseña</label>
-    <input type="text" class="form-control" id="Contrasenia" name="Contrasenia" value="' . $showpersona["Contrasenia"] . '">
+    <input type="password" class="form-control" id="Contrasenia" name="Contrasenia" value="' . $showpersona["Contrasenia"] . '">
 </div>
 <div class="col-6 form-group green-box">
     <label for="">Rol</label>

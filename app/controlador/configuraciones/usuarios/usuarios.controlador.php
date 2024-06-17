@@ -27,16 +27,16 @@ class UsuariosControlador
       isset($_POST["Nombres"])
       && isset($_POST["Correo"])
       && isset($_POST["Celular"])
-      && isset($_POST["Contrasenia"])
-       && isset($_POST["Rol"])
-       && isset($_POST["Activo"])
+      && isset($_POST["Contrasenia"]) 
+       && isset($_POST["Rol"])       
     ) {
       $data = array(
         
         "Nombres" => $_POST["Nombres"],
         "Correo" => $_POST["Correo"],
         "Celular" => $_POST["Celular"],    
-        "Contrasenia" => $_POST["Contrasenia"],           
+        "Contrasenia" => $_POST["Contrasenia"],     
+         
         "Rol" => $_POST["Rol"], 
         "Activo" => 1,
       );
@@ -140,7 +140,7 @@ class UsuariosControlador
                 
                     Swal.fire({
                         icon: "success",
-                        title: "El usuario se ha deshabilitado.",
+                        title: "La Linea ha sido eliminada.",
                     
                     showConfirmButton: true,
                         confirmButtonText: "Ok"

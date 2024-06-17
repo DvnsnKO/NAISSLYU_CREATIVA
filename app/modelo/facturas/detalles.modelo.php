@@ -90,6 +90,23 @@ class DetallesFacturaModelo
       }
     }
   }
+  static public function show($id)
+  {
+    /** Realizar la consulta a la base de datos */
+    $data = Conexion::connect()->prepare("SELECT *  FROM detalles_factura WHERE Facturas_Id_Facturas = :id");
+
+    /** Inicializar los parametros de la consulta */
+    $data->bindParam(":id", $id, PDO::PARAM_INT);
+
+    /**Ejecutar la consulta */
+    $data->execute();
+
+    /** Devuelve el registro consultado */
+    return $data->fetchAll();
+
+
+  }
+
 }
 
 

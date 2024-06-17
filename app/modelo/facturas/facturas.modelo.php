@@ -10,7 +10,10 @@ class FacturasModelo
   {try 
     {
       /** Realizar la consulta a la base de datos */
-      $datos = Conexion::connect()->prepare("SELECT * FROM facturas");
+      $datos = Conexion::connect()->prepare("
+      SELECT f.*, p.Nombres AS Nombre_persona 
+                  FROM facturas f
+                  INNER JOIN personas p ON f.personas_Id_persona = p.Id_persona");
 
       /**Ejecutar la consulta */
       $datos->execute();
@@ -90,6 +93,25 @@ class FacturasModelo
       }
     }
   }
+  static public function show($id)
+  {
+    /** Realizar la consulta a la base de datos */
+    $data = Conexion::connect()->prepare("SELECT f.*, p.Nombres AS Nombre_persona 
+                  FROM facturas f
+                  INNER JOIN personas p ON f.personas_Id_persona = p.Id_persona WHERE personas_Id_persona = :id");
+
+    /** Inicializar los parametros de la consulta */
+    $data->bindParam(":id", $id, PDO::PARAM_INT);
+
+    /**Ejecutar la consulta */
+    $data->execute();
+
+    /** Devuelve el registro consultado */
+    return $data->fetchAll();
+
+
+  }
+
 }
 
 

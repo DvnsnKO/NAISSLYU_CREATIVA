@@ -53,7 +53,9 @@
 
 
                                     /**Lllamar al controlador para recuperar los registros de la tabla de base de datos */
-                                    $Detalles_factura = DetallesFacturaControlador::index();
+                                    $Detalles_factura = DetallesFacturaControlador::show();
+                                    
+
                                     foreach ($Detalles_factura as $key =>$Detalle_factura) {
 
                                         echo ' <tr>
@@ -70,6 +72,7 @@
 
 
                                     }
+                                    
 
 
 

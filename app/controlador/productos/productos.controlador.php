@@ -95,71 +95,112 @@ class ProductoControlador
             echo "Faltan datos en el formulario.";
         }
     }
- 
+
 
     static public function show()
     {
-  
-      return $data = ProductoModel::show($_GET["id"]);
-  
+
+        return $data = ProductoModel::show($_GET["id"]);
+
     }
     static public function update()
     {
-  
-  
-      /** Validar que existan las variables recibidas del formulario */
-      if (
-        isset($_POST["Codigo_producto"]) &&
+
+
+        /** Validar que existan las variables recibidas del formulario */
+        if (
+            isset($_POST["Codigo_producto"]) &&
             isset($_POST["Nombre"]) &&
             isset($_POST["Precio_uni"]) &&
             isset($_POST["Descripcion"]) &&
             isset($_POST["Cant_disp"]) &&
             isset($_POST["Lineas_idLineas"])
-  
-  
-  
-  
-      ) {
-        $data = array(
-            "Codigo_producto" => $_POST["Codigo_producto"],
-            "Nombre" => $_POST["Nombre"],
-            "Precio_uni" => $_POST["Precio_uni"],
-            "Descripcion" => $_POST["Descripcion"],
-            "Cant_disp" => $_POST["Cant_disp"],
-            "Lineas_idLineas" => $_POST["Lineas_idLineas"],
-           
-          );
-  
-  
-        /**Llamar al modelo para actualizar el registro */
-        $response = ProductoModel::update($data);
-  
-        /** validar la respuesta del modelo  */
-        if ($response == "Ok") {
-          echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-          echo '<script>
-                      
-                              Swal.fire({
-                                  icon: "success",
-                                  title: "el producto ha sido actualizado de forma correcta.",
-                              
-                                 showConfirmButton: true,
-                                  confirmButtonText: "Ok"
-                                  }).then(function(result){
-                                              if (result.value) {
-                                                  /**Redireccionar a la página principal de categorias de producto */
-                                                  window.location.href = "indexadmin.php?rutaadmin=activos";
-                                              }
-                                          })
-                      </script>';
-        } else {
-          echo "ocurrio un error";
+
+
+
+
+        ) {
+            $data = array(
+                "Codigo_producto" => $_POST["Codigo_producto"],
+                "Nombre" => $_POST["Nombre"],
+                "Precio_uni" => $_POST["Precio_uni"],
+                "Descripcion" => $_POST["Descripcion"],
+                "Cant_disp" => $_POST["Cant_disp"],
+                "Lineas_idLineas" => $_POST["Lineas_idLineas"],
+                "Estado" => $_POST["Estado"]
+
+            );
+
+
+            /**Llamar al modelo para actualizar el registro */
+            $response = ProductoModel::update($data);
+
+            /** validar la respuesta del modelo  */
+            if ($response == "Ok") {
+
+                echo '<script>
+    Swal.fire({
+        icon: "success",
+        title: "El producto ha sido actualizado correctamente.",
+        showConfirmButton: true,
+        confirmButtonText: "Ok"
+    }).then(function(result) {
+        if (result.value) {
+            /** Redirigir a la página anterior en el historial del navegador */
+            window.history.go(-2);
         }
-      }
+    });
+</script>';
+            } else {
+                echo "ocurrio un error";
+            }
+        }
+    }
+
+    static public function delete()
+    {
+        //** Valñidar la variable id que exista y contenga un valor no nulo */
+        if (isset($_GET["id"])) {
+
+            $response = ProductoModel::delete($_GET["id"]);
+
+            if ($response == "Ok") {
+
+                /** Enviar mensaje de eliminación correcta */
+                echo '<script>
+                
+                    Swal.fire({
+                        icon: "success",
+                        title: "El producto ha sido eliminado",
+                    
+                    showConfirmButton: true,
+                        confirmButtonText: "Ok"
+                        }).then(function(result){
+                                    if (result.value) {
+                                        /**Redireccionar a la página principal de marcas de producto*/
+                                        window.location.href = "indexadmin.php?rutaadmin=activos";
+                                    }
+                                })
+                </script>';
+            } else {
+                echo '<script>
+                
+                Swal.fire({
+                    icon: "error",
+                    title: "La linea no ha sido eliminada",
+                
+                showConfirmButton: true,
+                    confirmButtonText: "Ok"
+                    }).then(function(result){
+                                if (result.value) {
+                                    /**Redireccionar a la página principal de marcas de producto*/
+                                    window.location.href = "indexadmin.php?rutaadmin=activos";
+                                }
+                            })
+            </script>';
+            }
+
+        }
     }
 }
 ?>
-
-
-
-

@@ -1,7 +1,17 @@
+<?php
+
+
+
+require_once './app/controlador/Personas/personas.controlador.php';
+
+/* Consultar el registro por medio del id pasado por la url */
+$showuser = ClientesControlador::show();
+
+?>
 
 
 <div class="container">
-<h1 style="font-size: 3rem; font-weight: bold;">Mi cuenta</h1>
+<h1 class="text-center"> <?php echo $showuser["Nombres"];?></h1>
     <!-- Content Header (Page header) -->
    
 
@@ -22,12 +32,12 @@
                             
                             <div class="col-sm-12 mb-3">
 
-                                <a href="index.php?ruta=pedidos" class="btn btn-outline-dark btn-block"><b>Mis pedidos</b></a>
+                                <a href="index.php?ruta=pedidos&id=<?php echo $showuser["Id_persona"];?>" class="btn btn-outline-dark btn-block"><b>Mis pedidos</b></a>
 
                             </div>
                             <div class="col-sm-12 mb-3">
 
-                                <a href="index.php?ruta=login" class="btn btn-outline-dark btn-block"><b>Cerrar sesion</b></a>
+                                <a href="index.php?ruta=cerrarsesion" class="btn btn-outline-dark btn-block"><b>Cerrar sesion</b></a>
 
                             </div>
                             
@@ -49,3 +59,5 @@
 
 </section>
 </div>
+
+

@@ -42,13 +42,12 @@
 
                                     <?php
 
-                                    require_once './app/controlador/Personas/crm.controlador.php';
-
+                                    
                                     require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.php';
 
 
                                     /**Lllamar al controlador para recuperar los registros de la tabla de base de datos */
-                                    $Personas = PersonasControlador::index();
+                                    $Personas = UsuariosControlador::index();
                                     foreach ($Personas as $key => $Persona) {
 
                                         echo ' 
@@ -60,18 +59,27 @@
                                             <i class="fas fa-check success t24"></i>
                                         </td>
                                         <td class="vM">' . $Persona["Rol"] . '</td>
-                                        <td class="vM">' . $Persona["Activo"] . '</td> 
+                                        <td class="vM">';
+                                        if (($Persona["Activo"])==1){
+                                          echo "Activo";
+
+                                        }else{
+                                          echo "Inactivo";
+
+                                        }
+
+                                        echo '</td> 
                                         <td class="vM">
                                        ' . $Persona["Nombres"] .
                                         ' <br><small> ' .  $Persona["Correo"] .
                                         '</small><br><small>' .  $Persona["Celular"] . ' </small> </td>
-                                        <td class="vM">' . $Persona["Departamento"] . '</td>
+                                        <td class="vM">' . $Persona["Entidad_territorial"] . '</td>
                                         <td class="vM">' . $Persona["Direccion"] . '</td>
                                         <td class="vM">' . $Persona["Fecha_inscrito"] . '</td>
                                         <td>
-                                        <a  class="btn btn-warning btn-sm" href="indexadmin.php?rutaadmin=mostrar.usuarios&id='.$Persona["Id_persona"].'" title="Mostrar"><i class="fas fa-eye"></i></a>
-                                        <a class="btn btn-success btn-sm" href="indexadmin.php?rutaadmin=personas.actualizar&id='.$Persona["Id_persona"].'" title="editar"><i class="far fa-edit nav-icon"></i><span></i> </a>
-                                        <a class="btn btn-danger btn-sm btn-sm btnDelpersona" id ="'.$Persona["Id_persona"].'" title="eliminar"><i class="fa fa-trash nav-icon"></i> </a>
+                                        
+                                        <a class="btn btn-success btn-sm" href="indexadmin.php?rutaadmin=personas.actualizar&id='.$Persona["Id_persona"].'" title="Editar"><i class="far fa-edit nav-icon"></i><span></i> </a>
+                                        <a href="#" class="btn btn-danger btn-sm btn-sm btnDelpersona" id ="'.$Persona["Id_persona"].'" title="Eliminar"><i class="fa fa-trash nav-icon"></i> </a>
                                       </td>
                                     </tr>
                                     ';
@@ -91,5 +99,5 @@
     </div>
 </div>
 <?php
-$personadelete =UsuariosControlador::delete();
+$UserDelete = UsuariosControlador::delete();
 ?>

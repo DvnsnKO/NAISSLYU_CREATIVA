@@ -52,7 +52,7 @@ require_once './app/controlador/configuraciones/usuarios/usuarios.controlador.ph
                                         <td class="vM">' . $Persona["Celular"] . '</td>
                                         <td class="vM">' . $Persona["Rol"] . '</td>
                                         <td class="vM">' . $Persona["Departamento"] . '</td>
-                                        <td class="vM">' . $Persona["Direccion"] . '</td>
+                                        <td>
                                     </tr>
                                     ';
 

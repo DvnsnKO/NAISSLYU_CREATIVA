@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="./public/dist/css/adminlte.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <link rel="stylesheet" href="./public/dist/js/sweetalert2/sweetalert2.min.css">
 
-         <!-- js para los cuadros de mensajes -->
-         <script src="./public/dist/js/sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- js para los cuadros de mensajes -->
+    <script src="./public/dist/js/sweetalert2/sweetalert2.all.min.js"></script>
 
 
 </head>
@@ -52,13 +52,21 @@
 
                 </ul>
                 <ul class="navbar-nav ml-auto">
-
-                    <li class="text-dark text-right">
-                        <h6 class="mb-0"><b>naisslyu</b></h6>
-                        <p class="mb-3">Superadministrador</p>
-
+                    <li class="text-dark text-right mb-3">
+                        <h3 class="mb-0"><b>naisslyu</b></h3>
+                        <p class="mb-0">Superadministrador</p>
                     </li>
+                    <li class="text-dark text-right mb-3"></li>
+                    <a href="indexadmin.php?rutaadmin=cerraradmin"  title="Cerrar sesion"><i class="fas fa-door-open fa-4x text-dange"></i></a>
+                    </li>
+                    
+                    <ul class="navbar-nav ml-auto">
+                
+                   
                 </ul>
+              
+                
+                
 
             </nav>
 

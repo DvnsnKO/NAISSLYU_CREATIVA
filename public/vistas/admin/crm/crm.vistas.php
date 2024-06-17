@@ -68,8 +68,8 @@
                                         <td class="vM" style="padding:10px !important;">
                                             <div class="taC">
 
-                                                <div class="btn-group" role="group" aria-label="Basic example"><a
-                                                        href=""
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                <a  href="indexadmin.php?rutaadmin=pedidos.crm&id='.$Persona["Id_persona"].'"
                                                         class="btn btn-outline-blue btn-sm"
                                                         title="Compras de visitantes"><i class="fas fa-eye t16"></i></a>
                                                 </div>

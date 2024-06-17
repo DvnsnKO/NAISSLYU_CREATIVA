@@ -14,6 +14,12 @@ class FacturasControlador
     $data = FacturasModelo::index();
     return $data;
   }
+  static public function show()
+  {
+    return $data = FacturasModelo::show($_GET["id"]);
+
+  }
+  
   
 
 

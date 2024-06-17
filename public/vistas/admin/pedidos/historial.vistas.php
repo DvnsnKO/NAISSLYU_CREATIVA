@@ -53,7 +53,7 @@
 
                                         echo ' <tr>
                                         <td>' . $Factura["Id_Facturas"] . '</td>
-                                        <td>' . $Factura["personas_Id_persona"] . '</td>
+                                        <td>' . $Factura["Nombre_persona"] . '</td>
                                         <td>' . $Factura["Ciudad"] . '</td>
                                         <td>' . $Factura["Direccion"] . '</td>
                                         <td>' . $Factura["Total_factura"] . '</td>
@@ -61,7 +61,7 @@
                                         <td>' . $Factura["Estado_envio"] . '</td>
 
                                         <td>
-                                        <a href="indexadmin.php?rutaadmin=detalles" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Detalles</a>
+                                        <a href="indexadmin.php?rutaadmin=detalles&id= ' . $Factura["Id_Facturas"] . '" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Detalles</a>
 
                                         </td>
                                         </tr>';

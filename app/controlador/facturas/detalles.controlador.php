@@ -8,12 +8,14 @@ require_once "./app/modelo/facturas/detalles.modelo.php";
 class DetallesFacturaControlador
 {
   // Método para recuperar listado de los registros
-  static public function index()
+  static public function show()
   {
 
-    // LLamar al modelo para recuiperar todos los registros de la tabla
-    $data = DetallesFacturaModelo::index();
-    return $data;
+
+    return $data = DetallesFacturaModelo::show($_GET["id"]);
+    
+
+
   }
   
 
