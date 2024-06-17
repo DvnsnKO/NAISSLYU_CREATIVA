@@ -18,7 +18,7 @@ $(document).on("click", ".btnDelpersona", function(){
   
       if(result.value){
   
-        window.location = "indexadmin.php?rutaadmin=usuarios";
+        window.location = "indexadmin.php?rutaadmin=usuarios&id="+idPersona;
   
       }
   

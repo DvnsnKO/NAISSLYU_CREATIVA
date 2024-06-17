@@ -69,8 +69,8 @@ class usuariosModel
           </script>';
       } else {
         // 1 - Crear la consulta para inserción en la tabla
-        $create = Conexion::connect()->prepare("INSERT INTO personas (Nombres, Correo, Celular, Contrasenia, Rol, Departamento, Direccion, Activo)
-                VALUES( :Nombres, :Correo, :Celular, :Contrasenia, :Rol, :Departamento, :Direccion, :Activo)");
+        $create = Conexion::connect()->prepare("INSERT INTO personas (Nombres, Correo, Celular, Contrasenia, Rol, Activo)
+                VALUES( :Nombres, :Correo, :Celular, :Contrasenia, :Rol, :Activo)");
 
 
         /**Asignar parametros*/
@@ -81,8 +81,6 @@ class usuariosModel
         $create->bindParam(":Rol", $data["Rol"], PDO::PARAM_STR);
         $create->bindParam(":Contrasenia", $data["Contrasenia"], PDO::PARAM_INT);
         $create->bindParam(":Activo", $data["Activo"], PDO::PARAM_INT);
-        $create->bindParam(":Departamento", $data["Departamento"], PDO::PARAM_STR);
-        $create->bindParam(":Direccion", $data["Direccion"], PDO::PARAM_STR);
         /**Ejecutar la consulta */
         if ($create->execute()) {
           return "Ok";
@@ -160,9 +158,8 @@ class usuariosModel
     try {
 
      
-
       /** Armar la consulta a la base de datos para inactivar y no eliminar */
-      $update = Conexion::Connect()->prepare("UPDATE personas SET Activo = 0
+      $update = Conexion::Connect()->prepare("UPDATE personas SET Activo =0
         WHERE Id_persona = :id");
 
       /**Asignar parametros*/

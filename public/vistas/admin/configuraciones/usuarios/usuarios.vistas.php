@@ -71,7 +71,7 @@
                                         <td>
                                         <a  class="btn btn-warning btn-sm" href="indexadmin.php?rutaadmin=mostrar.usuarios&id='.$Persona["Id_persona"].'" title="Mostrar"><i class="fas fa-eye"></i></a>
                                         <a class="btn btn-success btn-sm" href="indexadmin.php?rutaadmin=personas.actualizar&id='.$Persona["Id_persona"].'" title="editar"><i class="far fa-edit nav-icon"></i><span></i> </a>
-                                        <a href="#" class="btn btn-danger btn-sm btn-sm btnDelpersona" id ="'.$Persona["Id_persona"].'" title="eliminar"><i class="fa fa-trash nav-icon"></i> </a>
+                                        <a class="btn btn-danger btn-sm btn-sm btnDelpersona" id ="'.$Persona["Id_persona"].'" title="eliminar"><i class="fa fa-trash nav-icon"></i> </a>
                                       </td>
                                     </tr>
                                     ';
@@ -91,4 +91,5 @@
     </div>
 </div>
 <?php
-$lineaDelete = $lineaDelete =UsuariosControlador::delete();
+$personadelete =UsuariosControlador::delete();
+?>
