@@ -159,7 +159,7 @@ class LineasControlador
                     }).then(function(result){
                                 if (result.value) {
                                     /**Redireccionar a la página principal de marcas de producto*/
-                                    window.location.href = "indexadmin.php?rutaadmin=usuarios";
+                                    window.location.href = "indexadmin.php?rutaadmin=lineas";
                                 }
                             })
             </script>';

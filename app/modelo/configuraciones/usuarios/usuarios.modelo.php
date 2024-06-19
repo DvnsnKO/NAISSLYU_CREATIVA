@@ -81,7 +81,8 @@ class usuariosModel
         $create->bindParam(":Rol", $data["Rol"], PDO::PARAM_STR);
         $create->bindParam(":Contrasenia", $data["Contrasenia"], PDO::PARAM_STR);
         $create->bindParam(":Activo", $data["Activo"], PDO::PARAM_INT);
-       
+        $create->bindParam(":Departamento", $data["Departamento"], PDO::PARAM_STR);
+        $create->bindParam(":Direccion", $data["Direccion"], PDO::PARAM_STR);
         /**Ejecutar la consulta */
         if ($create->execute()) {
           return "Ok";
@@ -159,9 +160,8 @@ class usuariosModel
     try {
 
      
-
       /** Armar la consulta a la base de datos para inactivar y no eliminar */
-      $update = Conexion::Connect()->prepare("UPDATE personas SET Activo = 0
+      $update = Conexion::Connect()->prepare("UPDATE personas SET Activo =0
         WHERE Id_persona = :id");
 
       /**Asignar parametros*/
