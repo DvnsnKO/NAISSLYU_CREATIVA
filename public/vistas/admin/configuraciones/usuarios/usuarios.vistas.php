@@ -77,7 +77,8 @@
                                         <td class="vM">' . $Persona["Direccion"] . '</td>
                                         <td class="vM">' . $Persona["Fecha_inscrito"] . '</td>
                                         <td>
-                                        
+
+                                        <a href="indexadmin.php?rutaadmin=mostrar.usuarios&id='.$Persona["Id_persona"].'" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"title="Consultar"></i> <span></a>
                                         <a class="btn btn-success btn-sm" href="indexadmin.php?rutaadmin=personas.actualizar&id='.$Persona["Id_persona"].'" title="Editar"><i class="far fa-edit nav-icon"></i><span></i> </a>
                                         <a href="#" class="btn btn-danger btn-sm btn-sm btnDelpersona" id ="'.$Persona["Id_persona"].'" title="Eliminar"><i class="fa fa-trash nav-icon"></i> </a>
                                       </td>
