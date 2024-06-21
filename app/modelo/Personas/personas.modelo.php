@@ -76,7 +76,7 @@ class PersonasModel
         $create->bindParam(":Correo", $data["Correo"], PDO::PARAM_STR);
         $create->bindParam(":Celular", $data["Celular"], PDO::PARAM_INT);
         $create->bindParam(":Rol", $data["Rol"], PDO::PARAM_STR);
-        $create->bindParam(":Contrasenia", $data["Contrasenia"], PDO::PARAM_INT);       
+        $create->bindParam(":Contrasenia", $data["Contrasenia"], PDO::PARAM_STR);       
         $create->bindParam(":Activo", $data["Activo"], PDO::PARAM_INT);
         /**Ejecutar la consulta */
         if ($create->execute()) {
