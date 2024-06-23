@@ -3,7 +3,7 @@
 
 
 
-<form action="index.php?ruta=destacados" method="post">
+<form action="index.php?ruta=envios" method="post">
   <div class="row">
     <div class="col-8">
 
@@ -27,45 +27,12 @@
               <div class="col-6" id="pVar">
                 <label class="">cantidad:</label>
                 <input class=" col-6 " type="number" id="cantidad" name="cantidad"
-                min="1" value="" required>
+                min="1" value="1" required>
               </div>
             </div>
           </div>
         </div>
-        <div class="row mb-4  ">
-
-          <div class="col-2 text-center">
-            <img src="./public/images/alambrismo-rombos-arcoiris.png" alt="sin imagen" class="w-25">
-          </div>
-
-          <div class="col-10 ">
-            <div class="small ">Descripcion del producto:</div>
-            <div class="row small ">
-              <div class="col-6" id="pVar">
-                <label class="">cantidad:</label>
-                <input class=" col-6 " type="number" id="cantidad" name="cantidad"
-                  min="1" value="" required>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-4  ">
-
-          <div class="col-2 text-center">
-            <img src="./public/images/aretes-mostilla-acero.png" alt="sin imagen" class="w-25">
-          </div>
-
-          <div class="col-10 ">
-            <div class="small ">Descripcion del producto:</div>
-            <div class="row small ">
-              <div class="col-6" id="pVar">
-                <label class="">cantidad:</label>
-                <input class=" col-6 " type="number" id="cantidad" name="cantidad"
-                  min="1" value="" required>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
 
 
@@ -159,7 +126,7 @@
         </table>
         
           <div class="form-group text-center">
-            <button class="btn btn-success" type="submit">Realizar pago</button>
+            <button class="btn btn-success" type="submit" name="pagar"  >Realizar pago</button>
         
 
       </div>
@@ -170,3 +137,4 @@
 
   </div>
 </form>
+

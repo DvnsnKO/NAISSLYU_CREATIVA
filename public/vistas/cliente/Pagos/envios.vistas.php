@@ -68,10 +68,7 @@ else {
       <label for="nombreCompleto">Direccion</label>
       <input type="text" class="form-control" id="direccion" placeholder="direccion">
     </div>
-    <div class="form-group">
-      <label for="nombreCompleto">Descripcion de la vivienda</label>
-      <textarea type="textarea" class="form-control" id="descripcion" placeholder="descripcion"></textarea>
-    </div>
+    
     <button type="submit" class="btn btn-success">siguiente</button>
   </form>
 
