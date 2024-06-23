@@ -50,7 +50,7 @@ class RutasModelo
 
            
         } else if (
-            $ruta == "compras"
+            $ruta == "carrito"
             || $ruta == "envios"
             
 

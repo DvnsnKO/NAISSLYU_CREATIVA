@@ -32,8 +32,11 @@
                             <img src="./public/images/' . $Producto["Nombre"] . '/' . $Producto["Imagen"] . '" class="card-img-top" style="width: 100%; height: 50%;">
                             <div class="card-body">
                                 <h5 class="card-title">' . $Producto["Nombre"] . '</h5><br>
-                             <small class="card-text"> Precio: ' . $Producto["Precio_uni"] . "00".' </small><br>
-                                <button type="button" class="btn btn-success">Agregar al carrito</button>
+                             <small class="card-text"> Precio: ' . $Producto["Precio_uni"] . ' </small><br>
+                               <form method="post" >
+                                <input type="hidden" name="Codigo_producto" value="' . $Producto["Codigo_producto"] . '">
+                                 <button type="submit" class="btn btn-success">Agregar al carrito</button>
+                                </form>
                             </div>
                         </div>
                     </div>';

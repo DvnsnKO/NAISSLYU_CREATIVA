@@ -85,7 +85,7 @@
             ?>
             
             
-            <a href="index.php?ruta=envios"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>
+            <a href="index.php?ruta=carrito"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>
         </div>
     </div> <!--logos inicio de sesion-->
 </div><!-- titulo-->

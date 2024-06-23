@@ -10,9 +10,6 @@ class ProductoControlador
 {
 
 
-
-
-
   // Método para recuperar listado de los registros
   static public function index()
   {

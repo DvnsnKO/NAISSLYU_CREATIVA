@@ -10,16 +10,13 @@
       <div class="form-group">
 
         <h3><b> Detalle del envio </b> </h3><br>
-        <span><i class="fas fa-map"></i></span>
-        <label class="" for="direccion">Dirección de envío:</label>
-        <input class="form-control right col-10" id="" name="shippingAddress" type="text" required>
+        
       </div>
       <hr>
 
       <div class="form-group  ">
         <label for="products">Productos comprados:</label>
         <div class="row mb-4  ">
-
           <div class="col-2 text-center">
             <img src="./public/images/alambrismo-corazones.png" alt="sin imagen" class="w-25">
           </div>
