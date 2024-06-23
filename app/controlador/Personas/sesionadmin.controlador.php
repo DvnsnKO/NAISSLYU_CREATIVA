@@ -53,8 +53,8 @@ class SesionControlador
                            
                 Swal.fire({
                     icon: "error",
-                    title: "Intente Nuevamente",
-                    text: "Usuario y/o contraseña incorrectos",
+                    title: "acceso denegado",
+                    text: "No tiene suficientes permisos para ingresar",
                     
                     });
                 </script>';

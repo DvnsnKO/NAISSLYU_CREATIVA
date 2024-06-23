@@ -14,8 +14,13 @@
 		static public function infoDatabase(){
           
 			$infoDB = array(
+<<<<<<< HEAD
 				"host" => "localhost",
 				"database" => "ejemplo",
+=======
+				"host" => "localhost:3307",
+				"database" => "ejemplo3",
+>>>>>>> f7a1092c206a0302c1d26e082538dc709bcd8adc
 				"user" => "root",
 				"pass" => ""
 
