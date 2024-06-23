@@ -12,7 +12,7 @@ class ProductoModel
     {
     
       /** Realizar la consulta a la base de datos */
-      $datos = Conexion::connect()->prepare("SELECT * FROM productos WHERE Estado = 1 AND Cant_disp > 0;");
+      $datos = Conexion::connect()->prepare("SELECT * FROM productos WHERE Estado = 1 AND Cant_disp > 0");
 
       /**Ejecutar la consulta */
       $datos->execute();
@@ -27,6 +27,23 @@ class ProductoModel
       echo $e->getMessage();
       die();
     }
+  }
+  static public function show($id)
+  {
+    /** Realizar la consulta a la base de datos */
+    $data = Conexion::connect()->prepare("SELECT * FROM productos WHERE Lineas_idLineas = :id");
+
+    /** Inicializar los parametros de la consulta */
+    $data->bindParam(":id", $id, PDO::PARAM_INT);
+
+    /**Ejecutar la consulta */
+    $data->execute();
+
+    /** Devuelve el registro consultado */
+    return $data->fetchAll();
+
+    /**Cerrar conexion a la bd */
+
   }
 }
 
