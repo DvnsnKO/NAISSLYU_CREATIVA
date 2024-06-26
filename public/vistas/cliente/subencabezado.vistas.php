@@ -32,6 +32,7 @@
 
                                       
                                       require_once './app/controlador/lineas/lineas.controlador.php';
+                                     
                                       
                                     
 
@@ -42,7 +43,7 @@
                                           
                                          echo '  <tr class="p-0">
                                          <td class="p-0">
-                                             <a href="index.php?ruta=productos" class="btn btn-block w-100"
+                                             <a href="index.php?ruta=productos&id='. $Linea["idLineas"] .'" class="btn btn-block w-100"
                                                  style="color: black;">'. $Linea["Nombre_linea"] .'</a>
                                          </td>
                                      </tr>';
@@ -84,7 +85,7 @@
             ?>
             
             
-            <a href="index.php?ruta=envios"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>
+            <a href="index.php?ruta=carrito"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>
         </div>
     </div> <!--logos inicio de sesion-->
 </div><!-- titulo-->
@@ -105,3 +106,9 @@
 </div>
 </div>
 <main>
+<?php
+  
+        // Llamar a la función del controlador para procesar el formulario
+   
+   
+?>

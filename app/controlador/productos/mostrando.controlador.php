@@ -10,9 +10,6 @@ class ProductoControlador
 {
 
 
-
-
-
   // Método para recuperar listado de los registros
   static public function index()
   {
@@ -21,7 +18,18 @@ class ProductoControlador
     $data = ProductoModel::index();
     return $data;
   }
- 
+  static public function show()
+    {
+      if (!isset($_GET["id"])){
+        return $data = ProductoModel::show(2);
+
+
+      }else{
+
+        return $data = ProductoModel::show($_GET["id"]);
+
+    }}
+  
 
 
 }

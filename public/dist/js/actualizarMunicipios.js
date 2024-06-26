@@ -1,79 +1,4 @@
-<?php
 
-
-
-// si hay una sesion iniciada me requiere el controlador y posteriormente me evalua si hay una entidad terriorial configurada....
-if (isset($_SESSION["usuario"])) {
-  require_once "./app/controlador/Personas/personas.controlador.php";
-
-  $showuser = ClientesControlador::show();
-
-  if ($showuser["Entidad_territorial"]) {
-    list($departamento, $municipio) = explode('-', $showuser["Entidad_territorial"]);
-    // si hay una sesion y no hay entidad territorial seleccionada me trae vacios los campos para que el script funcione
-  } else {
-    $departamento = "";
-    $municipio = "";
-  }
-
-
-}
-// si no hay una sesion me trae vacios los campos para que el script funcione
-else {
-  $departamento = "";
-  $municipio = "";
-
-}
-
-
-?>
-
-<div class="container">
-  <form action="index.php?ruta=compras" method="post">
-
-    <div class="input-group mb-3">
-      <label for="departamentos">Departamentos</label>
-      <div class="col-12">
-        <select name="departamento" id="departamentos" class="form-control" onchange="actualizarMunicipios()">
-          <?php
-          // Aquí se generan las opciones del departamento
-          $departamentosYmunicipios = []; // Inicialización vacía, debería cargar desde el JSON en JavaScript
-          foreach ($departamentosYmunicipios as $depto) {
-            $selected = ($depto['departamento'] == $departamento) ? 'selected' : '';
-            echo '<option value="' . $depto['departamento'] . '" ' . $selected . '>' . $depto['departamento'] . '</option>';
-          }
-          ?>
-        </select>
-      </div>
-    </div>
-    <div class="input-group mb-3">
-      <label for="departamentos">municipios</label>
-      <div class="col-12">
-        <select name="municipio" id="municipios" class="form-control"></select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="nombreCompleto">Nombre Completo</label>
-      <input type="text" class="form-control" id="nombreCompleto" placeholder="Nombre de quien recibe">
-    </div>
-    <div class="form-group">
-      <label for="nombreCompleto">Celular</label>
-      <input type="number" class="form-control" id="numerocelular" placeholder="Celular">
-    </div>
-    <div class="form-group">
-      <label for="nombreCompleto">correo</label>
-      <input type="email" class="form-control" id="email" placeholder="Correo">
-    </div>
-    <div class="form-group">
-      <label for="nombreCompleto">Direccion</label>
-      <input type="text" class="form-control" id="direccion" placeholder="direccion">
-    </div>
-    
-    <button type="submit" class="btn btn-success">siguiente</button>
-  </form>
-
-</div>
-<script>
     let departamentosYmunicipios = [];
 
     document.addEventListener('DOMContentLoaded', (event) => {
@@ -122,7 +47,7 @@ else {
 
         // Limpiar el select de municipios
         selectMunicipios.innerHTML = '';
- 
+
         const departamentoObj = departamentosYmunicipios.find(dep => dep.departamento === departamentoSeleccionado);
 
         if (departamentoObj) {
@@ -140,4 +65,3 @@ else {
             }
         }
     }
-</script>

@@ -3,23 +3,20 @@
 
 
 
-<form action="index.php?ruta=destacados" method="post">
+<form action="index.php?ruta=envios" method="post">
   <div class="row">
     <div class="col-8">
 
       <div class="form-group">
 
         <h3><b> Detalle del envio </b> </h3><br>
-        <span><i class="fas fa-map"></i></span>
-        <label class="" for="direccion">Dirección de envío:</label>
-        <input class="form-control right col-10" id="" name="shippingAddress" type="text" required>
+        
       </div>
       <hr>
 
       <div class="form-group  ">
         <label for="products">Productos comprados:</label>
         <div class="row mb-4  ">
-
           <div class="col-2 text-center">
             <img src="./public/images/alambrismo-corazones.png" alt="sin imagen" class="w-25">
           </div>
@@ -30,45 +27,12 @@
               <div class="col-6" id="pVar">
                 <label class="">cantidad:</label>
                 <input class=" col-6 " type="number" id="cantidad" name="cantidad"
-                min="1" value="" required>
+                min="1" value="1" required>
               </div>
             </div>
           </div>
         </div>
-        <div class="row mb-4  ">
-
-          <div class="col-2 text-center">
-            <img src="./public/images/alambrismo-rombos-arcoiris.png" alt="sin imagen" class="w-25">
-          </div>
-
-          <div class="col-10 ">
-            <div class="small ">Descripcion del producto:</div>
-            <div class="row small ">
-              <div class="col-6" id="pVar">
-                <label class="">cantidad:</label>
-                <input class=" col-6 " type="number" id="cantidad" name="cantidad"
-                  min="1" value="" required>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-4  ">
-
-          <div class="col-2 text-center">
-            <img src="./public/images/aretes-mostilla-acero.png" alt="sin imagen" class="w-25">
-          </div>
-
-          <div class="col-10 ">
-            <div class="small ">Descripcion del producto:</div>
-            <div class="row small ">
-              <div class="col-6" id="pVar">
-                <label class="">cantidad:</label>
-                <input class=" col-6 " type="number" id="cantidad" name="cantidad"
-                  min="1" value="" required>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
 
 
@@ -162,7 +126,7 @@
         </table>
         
           <div class="form-group text-center">
-            <button class="btn btn-success" type="submit">Realizar pago</button>
+            <button class="btn btn-success" type="submit" name="pagar"  >Realizar pago</button>
         
 
       </div>
@@ -173,3 +137,4 @@
 
   </div>
 </form>
+
