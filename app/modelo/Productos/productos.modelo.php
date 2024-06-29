@@ -3,15 +3,16 @@
  de separar los datos de los productos que pueden ver los clientes y los permisos del admin
  */
 require_once "./conexion.php";
+require_once './app/controlador/productos/productos.controlador.php';
 
 class ProductoModel
 {
 
   public static function index()
-  {try 
-    {
+  {
+    try {
       /** Realizar la consulta a la base de datos */
-      $datos = Conexion::connect()->prepare("SELECT * FROM productos"); 
+      $datos = Conexion::connect()->prepare("SELECT * FROM productos");
 
       /**Ejecutar la consulta */
       $datos->execute();
@@ -20,7 +21,7 @@ class ProductoModel
       return $datos->fetchAll();
 
       /**Cerrar conexion a la bd */
-    
+
 
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -72,7 +73,7 @@ class ProductoModel
 
         /**Asignar parametros*/
         $create->bindParam(":Codigo_producto", $data["Codigo_producto"], PDO::PARAM_STR);
-        $create->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);      
+        $create->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);
         $create->bindParam(":Lineas_idLineas", $data["Lineas_idLineas"], PDO::PARAM_INT);
         $create->bindParam(":Cant_disp", $data["Cant_disp"], PDO::PARAM_INT);
         $create->bindParam(":Descripcion", $data["Descripcion"], PDO::PARAM_STR);
@@ -87,7 +88,7 @@ class ProductoModel
         }
 
         /**Cerrar conexion a la bd */
-        
+
       }
     }
   }
@@ -111,6 +112,22 @@ WHERE p.Codigo_producto = :id");
     /**Cerrar conexion a la bd */
 
   }
+  static public function showpromociones($data)
+  {
+    /** Realizar la consulta a la base de datos */
+    $datas = Conexion::connect()->prepare("SELECT * from productos where Lineas_idLineas=$data ");
+
+    /** Inicializar los parametros de la consulta */
+
+    /**Ejecutar la consulta */
+    $datas->execute();
+
+    /** Devuelve el registro consultado */
+    return $datas->fetch();
+
+    /**Cerrar conexion a la bd */
+
+  }
   static public function update($data)
   {
 
@@ -119,14 +136,14 @@ WHERE p.Codigo_producto = :id");
     WHERE Codigo_producto = :id ");
 
 
-/**Asignar parametros*/
-$update->bindParam(":id", $data["Codigo_producto"], PDO::PARAM_STR);
-$update->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);    
-$update->bindParam(":Estado", $data["Estado"], PDO::PARAM_STR);
-$update->bindParam(":Lineas_idLineas", $data["Lineas_idLineas"], PDO::PARAM_INT);
-$update->bindParam(":Cant_disp", $data["Cant_disp"], PDO::PARAM_INT);
-$update->bindParam(":Descripcion", $data["Descripcion"], PDO::PARAM_STR);
-$update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
+    /**Asignar parametros*/
+    $update->bindParam(":id", $data["Codigo_producto"], PDO::PARAM_STR);
+    $update->bindParam(":Nombre", $data["Nombre"], PDO::PARAM_STR);
+    $update->bindParam(":Estado", $data["Estado"], PDO::PARAM_STR);
+    $update->bindParam(":Lineas_idLineas", $data["Lineas_idLineas"], PDO::PARAM_INT);
+    $update->bindParam(":Cant_disp", $data["Cant_disp"], PDO::PARAM_INT);
+    $update->bindParam(":Descripcion", $data["Descripcion"], PDO::PARAM_STR);
+    $update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
 
 
 
@@ -135,7 +152,7 @@ $update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
       return "Ok";
     } else {
 
-    
+
       echo '<script>
                            
                     Swal.fire({
@@ -152,18 +169,58 @@ $update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
                               });
                   </script>';
     }
-    ;
+
 
 
     /** Cerrar conexion a la bd */
 
 
   }
+  static public function updatepromociones($data, $valorporcentaje)
+  {
+    $Personas = ProductoControlador::index();
+    foreach ($Personas as $key => $Persona) {
+      echo $Persona["Precio_uni"]."\n";
+      if ($Persona["Lineas_idLineas"] == $data) {
+        $update = Conexion::Connect()->prepare("UPDATE productos SET  Precio_uni= :Precio_uni
+    WHERE Lineas_idLineas = :id");
+        $descuento = ($Persona["Precio_uni"] - ($Persona["Precio_uni"] * $valorporcentaje / 100));
+        $update->bindParam(":id", $data, PDO::PARAM_INT);
+        $update->bindParam(":Precio_uni", $descuento, PDO::PARAM_INT);
+        if ($update->execute()) {
+          return "Ok";
+        } else {
+
+
+          echo '<script>
+                           
+                    Swal.fire({
+                      icon: "error",
+                      title: "error al actualizar.",
+                  
+                      showConfirmButton: true,
+                      confirmButtonText: "Aceptar"
+                      }).then(function(result){
+                                  if (result.value) {
+                                      /**Redireccionar a la página principal de CRM */
+                                      window.location.href = "indexadmin.php?rutaadmin=promociones";
+                                  }
+                              });
+                  </script>';
+        }
+
+      }
+
+
+    }
+
+  }
+
   static public function delete($id)
   {
     try {
 
-     
+
 
       /** Armar la consulta a la base de datos para inactivar y no eliminar */
       $update = Conexion::Connect()->prepare("UPDATE productos SET Estado = 0
@@ -172,7 +229,7 @@ $update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
       /**Asignar parametros*/
       $update->bindParam(":id", $id, PDO::PARAM_INT);
 
-   
+
 
       /**Ejecutar la consulta */
       if ($update->execute()) {
@@ -182,7 +239,7 @@ $update->bindParam(":Precio_uni", $data["Precio_uni"], PDO::PARAM_INT);
         return "Error";
       }
       /**Cerrar conexion a la bd */
-     
+
     } catch (Exception $e) {
       echo $e->getMessage();
       die();

@@ -126,6 +126,6 @@ require_once './app/controlador/productos/productos.controlador.php';
 /**
  * Llamar a la función del controlador: Crear 
  */
-$updateProducto = ProductoControlador::update();
+$updateProducto = ProductoControlador::updatepromociones();
 
 ?>
