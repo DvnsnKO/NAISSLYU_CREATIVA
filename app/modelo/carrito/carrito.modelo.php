@@ -31,7 +31,7 @@ class ProductoModel
   static public function show($id)
   {
     /** Realizar la consulta a la base de datos */
-    $data = Conexion::connect()->prepare("SELECT * FROM productos WHERE Lineas_idLineas = :id");
+    $data = Conexion::connect()->prepare("SELECT Nombre  FROM productos WHERE Codigo_producto = :id");
 
     /** Inicializar los parametros de la consulta */
     $data->bindParam(":id", $id, PDO::PARAM_INT);

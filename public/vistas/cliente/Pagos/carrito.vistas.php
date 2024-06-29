@@ -1,22 +1,49 @@
 <!-- Content Header (Page header) -->
 
+<?php
+
+require_once "./app/controlador/carrito/carrito.controlador.php";
+
+?>
 
 
-
-<form action="index.php?ruta=envios" method="post">
+<form action="" method="post">
   <div class="row">
     <div class="col-8">
 
       <div class="form-group">
 
         <h3><b> Detalle del envio </b> </h3><br>
-        
+
       </div>
       <hr>
 
       <div class="form-group  ">
         <label for="products">Productos comprados:</label>
+
+        <?php
+
+        $productosCarrito = ProductoControlador::show();
+
+        // Verificar si se obtuvieron productos del carrito
+        if (!empty($productosCarrito)) {
+          // Iterar sobre los productos del carrito
+          foreach ($productosCarrito as $producto) {
+            // Aquí puedes acceder a cada propiedad del producto
+            $nombre = $producto['Nombre'];
+            $precio = $producto['Precio_uni'];
+            // Mostrar o procesar cada producto como necesites
+            echo "Producto: $nombre - Precio: $precio<br>";
+          }
+        } else {
+          echo "El carrito está vacío.";
+        }
+
+
+        ?>
         <div class="row mb-4  ">
+
+
           <div class="col-2 text-center">
             <img src="./public/images/alambrismo-corazones.png" alt="sin imagen" class="w-25">
           </div>
@@ -26,13 +53,12 @@
             <div class="row small ">
               <div class="col-6" id="pVar">
                 <label class="">cantidad:</label>
-                <input class=" col-6 " type="number" id="cantidad" name="cantidad"
-                min="1" value="1" required>
+                <input class=" col-6 " type="number" id="cantidad" name="cantidad" min="1" value="1" required>
               </div>
             </div>
           </div>
         </div>
-        
+
 
 
 
@@ -76,14 +102,14 @@
           for="Nombres">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre del
           titular:&nbsp;&nbsp;
         </label>
-        <input type="text" id="Name" name="Name" style="font-family: Arial;  height: 25px;"  /><br>
+        <input type="text" id="Name" name="Name" style="font-family: Arial;  height: 25px;" /><br>
 
 
         <label style="color:#0A0A0A"
           ;for="Nombres">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numero de
           tarjeta:&nbsp;&nbsp;&nbsp;
         </label>
-        <input type="text" id="Name" name="Name" style="font-family: Arial; height: 25px;"  /><br>
+        <input type="text" id="Name" name="Name" style="font-family: Arial; height: 25px;" /><br>
         <label style="color:#0A0A0A"
           ;for="Nombres">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;codigo
           CVV:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -94,7 +120,7 @@
           ;for="Nombres">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fecha
           de caducidad:&nbsp;&nbsp;
         </label>
-        <input type="date" id="start" name="trip-start" value="17-02-2024" min="01-01-2024" max="31-12-2024"  />
+        <input type="date" id="start" name="trip-start" value="17-02-2024" min="01-01-2024" max="31-12-2024" />
         <br>&nbsp;&nbsp;
 
 
@@ -124,17 +150,16 @@
             </tr>
           </tbody>
         </table>
-        
-          <div class="form-group text-center">
-            <button class="btn btn-success" type="submit" name="pagar"  >Realizar pago</button>
-        
 
+        <div class="form-group text-center">
+          <button class="btn btn-success" type="submit" name="pagar">Realizar pago</button>
+
+
+        </div>
       </div>
+
+
+      <!-- /.login-card-body -->
+
     </div>
-
-
-    <!-- /.login-card-body -->
-
-  </div>
 </form>
-
