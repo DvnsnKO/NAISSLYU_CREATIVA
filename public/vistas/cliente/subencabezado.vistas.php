@@ -85,7 +85,13 @@
             ?>
             
             
-            <a href="index.php?ruta=carrito"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>
+             <?php
+            if (isset($_SESSION["usuario"])) {
+                echo '<a href="index.php?ruta=carrito"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>';
+            } else {
+            }?>
+            
+            
         </div>
     </div> <!--logos inicio de sesion-->
 </div><!-- titulo-->

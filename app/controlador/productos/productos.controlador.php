@@ -103,6 +103,12 @@ class ProductoControlador
         return $data = ProductoModel::show($_GET["id"]);
 
     }
+    static public function showpromociones()
+    {
+        $id = 10;
+        return $data = ProductoModel::showpromociones($id);
+
+    }
     static public function update()
     {
 
@@ -154,6 +160,35 @@ class ProductoControlador
             } else {
                 echo "ocurrio un error";
             }
+        }
+    }
+    static public function updatepromociones()
+    {
+        
+        if (
+            isset($_POST["idlineas"]) && isset($_POST["valorporcentaje"]))
+         {
+            $data =$_POST["idlineas"];
+          
+            $valorporcentaje = $_POST["valorporcentaje"];
+            $response = ProductoModel::updatepromociones($data, $valorporcentaje);
+        }
+        if ($response == "Ok") {
+
+            echo '<script>
+    Swal.fire({
+        icon: "success",
+        title: "El precio ha sido actualizado correctamente.",
+        showConfirmButton: true,
+        confirmButtonText: "Ok"
+    }).then(function(result) {
+        if (result.value) {
+            /** Redirigir a la página anterior en el historial del navegador */
+        }
+    });
+</script>';
+        } else {
+            echo "ocurrio un error";
         }
     }
 

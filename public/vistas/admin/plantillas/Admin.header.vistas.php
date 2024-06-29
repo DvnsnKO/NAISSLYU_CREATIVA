@@ -53,11 +53,11 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="text-dark text-right mb-3">
-                        <h3 class="mb-0"><b>naisslyu</b></h3>
-                        <p class="mb-0">Superadministrador</p>
+                        <h3 class="mb-0"><b>naisslyu</b>&nbsp;&nbsp;</h3>
+                        <p class="mb-0">Superadministrador&nbsp;&nbsp;</p>
                     </li>
                     <li class="text-dark text-right mb-3"></li>
-                    <a href="indexadmin.php?rutaadmin=cerraradmin"  title="Cerrar sesion"><i class="fas fa-door-open fa-4x text-dange"></i></a>
+                    <a href="indexadmin.php?rutaadmin=cerraradmin"  title="Cerrar sesion"><i class="fas fa-sign-out-alt fa-4x"></i></a>
                     </li>
                     
                     <ul class="navbar-nav ml-auto">

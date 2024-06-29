@@ -53,24 +53,26 @@ else {
       </div>
     </div>
     <div class="form-group">
-      <label for="nombreCompleto">Nombre Completo</label>
-      <input type="text" class="form-control" id="nombreCompleto" placeholder="Nombre de quien recibe">
+      <?php 
+      echo'<label for="nombreCompleto">Nombre Completo</label>
+      <input type="text" class="form-control" id="nombreCompleto" value="'.$showuser["Nombres"].'">
     </div>
     <div class="form-group">
       <label for="nombreCompleto">Celular</label>
-      <input type="number" class="form-control" id="numerocelular" placeholder="Celular">
+      <input type="number" class="form-control" id="numerocelular" value="'.$showuser["Celular"].'">
     </div>
     <div class="form-group">
       <label for="nombreCompleto">correo</label>
-      <input type="email" class="form-control" id="email" placeholder="Correo">
+      <input type="email" class="form-control" id="email" value="'.$showuser["Correo"].'">
     </div>
     <div class="form-group">
       <label for="nombreCompleto">Direccion</label>
-      <input type="text" class="form-control" id="direccion" placeholder="direccion">
+      <input type="text" class="form-control" id="direccion" value="'.$showuser["Direccion"].'">
     </div>
     
     <button type="submit" class="btn btn-success">siguiente</button>
-  </form>
+  </form>'?>
+      
 
 </div>
 <script>
