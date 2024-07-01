@@ -1,5 +1,38 @@
 <?php
+require_once "./app/controlador/carrito/carrito.controlador.php";
 
+if (!isset($_SESSION["usuario"]) ) {
+  // Mostrar el script JavaScript solo si no hay sesión iniciada
+  echo '<script>
+      Swal.fire({
+          icon: "question",
+          title: "inicia sesion o registrate",
+          showConfirmButton: true,
+          confirmButtonText: "Aceptar"
+      }).then(function(result){
+          if (result.value) {
+              window.location.href = " index.php?ruta=login";
+          }
+      });
+  </script>';
+}
+
+
+$productosCarrito = CarritoControlador::show();
+
+$data = [];
+
+if (isset($_POST["pago"])) {
+    if ($_POST["pago"] == "opcion1") {
+        $data = [
+            "Metodo_pago" => "efectivo"
+        ];
+    } else if ($_POST["pago"] == "opcion2") {
+        $data = [
+            "Metodo_pago" => $_POST["Pago_digital"]
+        ];
+    }
+}
 
 
 // si hay una sesion iniciada me requiere el controlador y posteriormente me evalua si hay una entidad terriorial configurada....
@@ -29,7 +62,7 @@ else {
 ?>
 
 <div class="container">
-  <form action="index.php?ruta=compras" method="post">
+  <form action="" method="post">
 
     <div class="input-group mb-3">
       <label for="departamentos">Departamentos</label>
@@ -53,25 +86,42 @@ else {
       </div>
     </div>
     <div class="form-group">
-      <?php 
-      echo'<label for="nombreCompleto">Nombre Completo</label>
-      <input type="text" class="form-control" id="nombreCompleto" value="'.$showuser["Nombres"].'">
+    <div class="form-group">
+        <label for="nombreCompleto">Nombre Completo</label>
+        <input type="text" class="form-control" id="nombreCompleto" value="<?php echo $showuser["Nombres"]; ?>" readonly>
+        <input type="hidden" name="personas_Id_persona" value="<?php echo $showuser["Id_persona"]; ?>">
+        <input type="hidden" name="total" value="<?php echo $_POST["total"]; ?>">
+        <input type="hidden" name="Metodo_pago" value="<?php echo $data["Metodo_pago"]; ?>">
     </div>
     <div class="form-group">
-      <label for="nombreCompleto">Celular</label>
-      <input type="number" class="form-control" id="numerocelular" value="'.$showuser["Celular"].'">
+        <label for="numerocelular">Celular</label>
+        <input type="number" class="form-control" id="numerocelular" value="<?php echo $showuser["Celular"]; ?>" readonly>
     </div>
     <div class="form-group">
-      <label for="nombreCompleto">correo</label>
-      <input type="email" class="form-control" id="email" value="'.$showuser["Correo"].'">
+        <label for="email">Correo</label>
+        <input type="email" class="form-control" id="email" value="<?php echo $showuser["Correo"]; ?>" readonly>
     </div>
     <div class="form-group">
-      <label for="nombreCompleto">Direccion</label>
-      <input type="text" class="form-control" id="direccion" value="'.$showuser["Direccion"].'">
+        <label for="direccion">Dirección</label>
+        <input type="text" class="form-control" id="direccion" name="Direccion" value="<?php echo $showuser["Direccion"]; ?>">
     </div>
+
+    <!-- Campos ocultos para los detalles del producto -->
+    <?php
     
-    <button type="submit" class="btn btn-success">siguiente</button>
-  </form>'?>
+    if (isset($_SESSION["carrito"]) && !empty($productosCarrito)) {
+        foreach ($productosCarrito as $index => $producto) {
+            if ($_POST["cantidad"][$index]>0){
+            echo '<input type="hidden" name="Nombre_producto[' . $index . ']" value="' . $producto["Nombre"] . '">';
+            echo '<input type="hidden" name="Cantidad[' . $index . ']" value="' . $_POST["cantidad"][$index] . '">';
+            echo '<input type="hidden" name="Precio_unit[' . $index . ']" value="' . $_POST["Precio_unit"][$index] . '">';
+        }}
+    }
+    ?>
+
+    <!-- Botón para realizar el pago -->
+    <button type="submit" class="btn btn-success">Realizar pago</button>
+</form>
       
 
 </div>
@@ -143,3 +193,14 @@ else {
         }
     }
 </script>
+
+<?php
+
+if (isset($_POST["Direccion"])){
+
+require_once "./app/controlador/carrito/carrito.controlador.php";
+
+
+$datoscompra= CarritoControlador::create ();
+}
+?>

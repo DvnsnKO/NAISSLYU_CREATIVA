@@ -57,7 +57,7 @@
                         <p class="mb-0">Superadministrador&nbsp;&nbsp;</p>
                     </li>
                     <li class="text-dark text-right mb-3"></li>
-                    <a href="indexadmin.php?rutaadmin=cerraradmin"  title="Cerrar sesion"><i class="fas fa-sign-out-alt fa-4x"></i></a>
+                    <a href="indexadmin.php?rutaadmin=cerraradmin"  title="Cerrar sesion"><i class="fas fa-sign-out-alt fa-3x"></i></a>
                     </li>
                     
                     <ul class="navbar-nav ml-auto">

@@ -46,7 +46,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
+                                    
                                         <?php
                                         require_once './app/controlador/facturas/detalles.controlador.php';
                                         require_once './app/controlador/facturas/facturas.controlador.php';
@@ -57,7 +57,9 @@
 
                                         foreach ($Detalles_factura as $Detalle_factura) {
 
-                                            echo '<td>' . $Detalle_factura["Nombre_producto"] . '</td>
+                                            echo '
+                                            <tr>
+                                            <td>' . $Detalle_factura["Nombre_producto"] . '</td>
     <td>' . $Detalle_factura["Cantidad"] . '</td>
    <td>' . $Detalle_factura["Precio_unit"] . '</td>
     <td>' . $Detalle_factura["Valor_pagado"] . '</td>';
@@ -79,13 +81,14 @@
                                             if (!$encontrado) {
                                                 echo '<td> <input type="text" name="guia" placeholder="Digite numero de guia"> </td>
         <td> <input type="text" name="empresa_guia" placeholder="Empresa de envio"> </td>
-        <td> <a href="#" class="btn btn-success btn-sm">Marcar como enviado</a> </td>';
+        <td> <a href="#" class="btn btn-success btn-sm">Marcar como enviado</a> </td> 
+        </tr>';
                                             }
 
 
                                         }
                                         ?>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>

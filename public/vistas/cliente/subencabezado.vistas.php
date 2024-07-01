@@ -85,11 +85,9 @@
             ?>
             
             
-             <?php
-            if (isset($_SESSION["usuario"])) {
-                echo '<a href="index.php?ruta=carrito"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>';
-            } else {
-            }?>
+             
+            <a href="index.php?ruta=carrito"><i class="fas fa-shopping-cart" style="color: gray;"></i></a>
+            
             
             
         </div>

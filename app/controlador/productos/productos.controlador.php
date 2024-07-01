@@ -168,11 +168,15 @@ class ProductoControlador
         if (
             isset($_POST["idlineas"]) && isset($_POST["valorporcentaje"]))
          {
-            $data =$_POST["idlineas"];
-          
-            $valorporcentaje = $_POST["valorporcentaje"];
-            $response = ProductoModel::updatepromociones($data, $valorporcentaje);
-        }
+            $data =array(
+                "Lineas_idLineas" =>$_POST["idlineas"],
+                "Descuento" =>$_POST["valorporcentaje"],
+
+            );
+            
+           
+            $response = ProductoModel::updatepromociones($data);
+      
         if ($response == "Ok") {
 
             echo '<script>
@@ -190,7 +194,7 @@ class ProductoControlador
         } else {
             echo "ocurrio un error";
         }
-    }
+    }}
 
     static public function delete()
     {
